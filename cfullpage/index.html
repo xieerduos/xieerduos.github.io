@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="./lib/fullPage.js-master/dist/jquery.fullpage.min.css">
+  <script src="./lib/jquery-1.12.4.min.js"></script>
+  <script src="./lib/fullPage.js-master/dist/jquery.fullpage.min.js"></script>
+  <link rel="stylesheet" href="./lib/animate.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <title>fullpage全屏项目案例</title>
+</head>
+<body>
+  <!-- 第一步：引入jquery
+  第二步：引入jQuery的fullpage插件的js脚本和样式
+  第三步：编写html标签（编写全屏的html）
+  第四步：编写jquery的插件fullpage的初始化的代码。 -->
+  <div class="fullpage-container">
+    <!-- 第一屏 -->
+    <div class="section">
+      <div class="container">
+        <h3 amt="animated slideInLeft" class="animated slideInLeft">学习不能扬汤止沸，要一鼓作气</h3>
+        <img amt="animated slideInUp" class="animated slideInUp" src="./img/1.jpg" alt="">
+      </div>
+    </div>
+    <!-- 第二屏 -->
+    <div class="section">
+      <div class="container">
+        <h3 amt="animated slideInLeft" class="">我们跟牛逼的人的差距就是你不够勤奋</h3>
+        <img amt="animated slideInUp" src="./img/2.jpg" alt="">
+      </div>
+    </div>
+
+    <!-- 第三屏 -->
+    <div class="section">
+      <div class="container">
+          <h3 amt="animated slideInRight" class="">你不够勤奋</h3>
+          <img amt="animated bounceInRight" src="./img/1.jpg" alt="">
+        </div>
+    </div>
+    <div class="section">4</div>
+    <div class="section">5</div>
+  </div>
+
+  <script>
+    //编写 fullpage插件初始化的代码
+    $(function() {
+      $('.fullpage-container').fullpage({
+        sectionsColor: ['red', 'lightgreen', 'blue', 'teal', '#c09'],
+        // 在当前屏离开之前会执行下面的方法。
+        onLeave: function(index, nextIndex, dir) {
+          // console.log(index, nextIndex, dir);
+          // 让当前屏的 动画样式类去掉。
+          $('[amt]').each(function(i, element) {
+            var amt = $(element).attr('amt');
+            $(element).removeClass(amt);
+          });
+          // 给下一个显示的屏里面的 要动画的标签添加 动画样式类。
+          $('.fullpage-container .section')
+            .eq(nextIndex - 1)
+            .find('[amt]').each(function(i, elem) {
+              $(elem).addClass($(elem).attr('amt'));
+            });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
