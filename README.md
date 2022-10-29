@@ -1,8 +1,26 @@
 # 抖音@程序员李钟意主页
 
+静态页面官网
+
 ## 搭建过程
 
-### 创建仓库并提交到远程
+### Github page
+
+#### 创建仓库
+
+仓库名称为 `[github 名称].github.io`
+
+例如我的名称 xieerduos
+
+那么我创建的名称 `xieerduos.github.io`
+
+#### 提交代码
+
+包含 index.html 的代码
+
+### Gitee (国内)
+
+#### 创建仓库并提交到远程
 
 ```bash
 # 创建目录
@@ -42,29 +60,46 @@ git add .
 
 git commit -m "Initial commit && add index.html file"
 
+# 重命名本地分支
 git branch -m master main
 
 # 打开gitee.com 登录，后创建 gitee.io仓库
 # 拷贝已有仓库代码
 
+git remote add origin git@gitee.com:fe521/gitee.io.git
+
+git push -u origin main
+
 # 把本地仓库提交到远程
 git push origin main
 ```
 
-### Gitee Pages
+#### Gitee Pages （实名认证）
+
+参考地址：
 
 https://gitee.com/help/articles/4136
 
-首页 - 服务 - Gitee Pages
+---
 
-<img src="./images/gitee_page.jpg"  style="max-width: 600px;"/>
+1. 首页 - 服务 - Gitee Pages
 
-<img src="./images/gitee_page_2.jpg"  style="max-width: 600px;"/>
+<img src="./images/gitee_page.jpg"  style="max-width: 600px;"/><br/>
 
-<img src="./images/gitee_page_3.jpg"  style="max-width: 600px;"/>
+2. 点击个人设置完成验证
 
-<img src="./images/gitee_page_4.jpg"  style="max-width: 600px;"/>
+<img src="./images/gitee_page_2.jpg"  style="max-width: 600px;"/><br/>
 
-<img src="./images/gitee_page_5.jpg"  style="max-width: 600px;"/>
+3. 开始认证
 
-等待审核通过就好了呀
+<img src="./images/gitee_page_3.jpg"  style="max-width: 600px;"/><br/>
+
+4. 输入表单信息
+
+<img src="./images/gitee_page_4.jpg"  style="max-width: 600px;"/><br/>
+
+5. 提交认证
+
+<img src="./images/gitee_page_5.jpg"  style="max-width: 600px;"/><br/>
+
+6. 等待审核通过
