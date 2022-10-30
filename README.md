@@ -103,3 +103,29 @@ https://gitee.com/help/articles/4136
 <img src="./images/gitee_page_5.jpg"  style="max-width: 600px;"/><br/>
 
 6. 等待审核通过
+
+## docsify 项目搭建
+
+### 初始化adocsify项目
+
+https://docsify.js.org/#/zh-cn/quickstart
+
+```bash
+npm i docsify-cli -g
+
+docsify init ./docs
+
+docsify serve docs
+```
+
+
+###  优化项目结构
+
+移动文件到项目根目录
+
+
+```bash
+# 修改运行命令
+docsify serve .
+
+```
