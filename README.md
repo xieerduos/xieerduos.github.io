@@ -4,6 +4,21 @@
 
 ---
 
+在线预览 https://xieerduos.github.io/
+
+本地运行
+
+```bash
+# docsify-cli
+npm install docsify-cli -g
+
+# 本地启动服务
+# Listening at http://localhost:3000
+docsify serve .
+```
+
+---
+
 ## [抖音视频更新记录](/douyin/README.md)
 
 ## [Docsify 文档网站搭建过程](/docsify/README.md)
