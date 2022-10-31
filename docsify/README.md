@@ -10,6 +10,8 @@
 
 ### Github page
 
+Github page 官方快速入门 https://docs.github.com/cn/pages/quickstart
+
 #### 创建仓库
 
 仓库名称为 `[github 名称].github.io`
