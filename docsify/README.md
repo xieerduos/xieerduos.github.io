@@ -218,3 +218,32 @@ window.$docsify = {
   subMaxLevel: 4, // 默认显示 `####` (h4)以内的标题
 };
 ```
+
+### 谷歌统计 - Google Analytics
+
+https://docsify.js.org/#/zh-cn/plugins?id=%e8%b0%b7%e6%ad%8c%e7%bb%9f%e8%ae%a1-google-analytics
+
+https://analytics.google.com/
+
+登录根据指示操作
+
+数据流 - 创建 - 网站名称、域名等信息填写
+
+再次登录时 - 左下角 - 管理 -数据流
+
+```html
+<!-- Google tag (gtag.js) -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-C1YQQ3EKMQ"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-C1YQQ3EKMQ");
+</script>
+```
