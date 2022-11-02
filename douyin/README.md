@@ -1,10 +1,16 @@
 # 抖音视频更新记录
 
-- [抖音@程序员李钟意](https://www.douyin.com/user/MS4wLjABAAAAkiur2fK3qQYKHtdnwzT2_ysUpdIbGRMJ_2l3cA_l_3A) https://www.douyin.com/user/MS4wLjABAAAAkiur2fK3qQYKHtdnwzT2_ysUpdIbGRMJ_2l3cA_l_3A
+-   [抖音@程序员李钟意](https://www.douyin.com/user/MS4wLjABAAAAkiur2fK3qQYKHtdnwzT2_ysUpdIbGRMJ_2l3cA_l_3A) https://www.douyin.com/user/MS4wLjABAAAAkiur2fK3qQYKHtdnwzT2_ysUpdIbGRMJ_2l3cA_l_3A
 
 ---
 
 ## 2022 年 11 月
+
+###### 2022/11/2 星期三
+
+| 序号 | 视频                                                                 | 文档地址                                      |
+| :--: | :------------------------------------------------------------------- | :-------------------------------------------- |
+|  1   | [一秒查看开源代码](https://www.douyin.com/video/7161275091140087073) | [/docsify/README](/frontend/一秒查看开源代码) |
 
 ###### 2022/11/1 星期二
 
