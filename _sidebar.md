@@ -13,3 +13,5 @@
 -   [代码折叠小技巧 region 适用于任何编程语言](/frontend/代码块收起region.md)
 
 -   [一秒查看开源代码](/frontend/一秒查看开源代码.md)
+
+-   [一秒变黑客](/frontend/一秒变黑客.md)
