@@ -102,11 +102,11 @@ https://gitee.com/help/articles/4136
 
 4. 输入表单信息
 
-<img src="./images/docsify/gitee_page_4.jpg"  style="max-width: 600px;"/><br/>
+<img src="../images/docsify/gitee_page_4.jpg"  style="max-width: 600px;"/><br/>
 
 5. 提交认证
 
-<img src="./images/docsify/gitee_page_5.jpg"  style="max-width: 600px;"/><br/>
+<img src="../images/docsify/gitee_page_5.jpg"  style="max-width: 600px;"/><br/>
 
 6. 等待审核通过
 
