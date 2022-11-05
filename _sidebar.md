@@ -4,6 +4,8 @@
 
 -   [抖音视频更新记录](/douyin/README.md)
 
+-   [如何白嫖UI设计稿](/frontend/如何白嫖UI设计稿.md)
+
 -   [十分推荐的开源项目](/frontend/十分推荐的开源项目.md)
 
 -   [Docsify 文档网站搭建过程](/docsify/README.md)

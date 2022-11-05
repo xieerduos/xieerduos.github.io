@@ -1,16 +1,22 @@
 # 抖音视频更新记录
 
--   [抖音@程序员李钟意](https://www.douyin.com/user/MS4wLjABAAAAkiur2fK3qQYKHtdnwzT2_ysUpdIbGRMJ_2l3cA_l_3A) https://www.douyin.com/user/MS4wLjABAAAAkiur2fK3qQYKHtdnwzT2_ysUpdIbGRMJ_2l3cA_l_3A
+- [抖音@程序员李钟意](https://www.douyin.com/user/MS4wLjABAAAAkiur2fK3qQYKHtdnwzT2_ysUpdIbGRMJ_2l3cA_l_3A) https://www.douyin.com/user/MS4wLjABAAAAkiur2fK3qQYKHtdnwzT2_ysUpdIbGRMJ_2l3cA_l_3A
 
 ---
 
 ## 2022 年 11 月
 
+###### 2022/11/5 星期六
+
+| 序号 | 视频                                                                                    | 文档地址                                                   |
+| :--: | :-------------------------------------------------------------------------------------- | :--------------------------------------------------------- |
+|  1   | [十分推荐 vue-element-admin 开源项目](https://www.douyin.com/video/7162443067272776993) | [/frontend/如何白嫖 UI 设计稿](/frontend/如何白嫖UI设计稿) |
+
 ###### 2022/11/4 星期五
 
-| 序号 | 视频                                                                                    | 文档地址                                                                                     | 文档地址 |
-| :--: | :-------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------- | :------- |
-|  1   | [十分推荐 vue-element-admin 开源项目](https://www.douyin.com/video/7161996754227907873) | [/frontend/十分推荐的开源项目?id=vue-element-admin](/frontend/十分推荐的开源项目?id=vue-element-admin) |          |
+| 序号 | 视频                                                                                    | 文档地址                                                                                               |
+| :--: | :-------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------- |
+|  1   | [十分推荐 vue-element-admin 开源项目](https://www.douyin.com/video/7161996754227907873) | [/frontend/十分推荐的开源项目?id=vue-element-admin](/frontend/十分推荐的开源项目?id=vue-element-admin) |
 
 ###### 2022/11/3 星期四
 
