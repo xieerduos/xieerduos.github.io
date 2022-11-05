@@ -19,7 +19,6 @@ PS D:\Desktop\gitee.io> ni .prettierignore
 
 ```conf
 # .prettierignore 文件配置
-/node_modules
 /dist
 /.vscode
 node_modules
