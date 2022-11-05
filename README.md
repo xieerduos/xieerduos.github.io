@@ -13,12 +13,12 @@
 本地运行
 
 ```bash
-# docsify-cli
-npm install docsify-cli -g
+# install docsify-cli
+npm install
 
 # 本地启动服务
 # Listening at http://localhost:3000
-docsify serve .
+npm start
 ```
 
 ---

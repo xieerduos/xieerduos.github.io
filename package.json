@@ -1,0 +1,23 @@
+{
+  "name": "gitee.io",
+  "version": "1.0.0",
+  "description": "面向搜索引擎编程",
+  "main": "index.js",
+  "scripts": {
+    "start": "docsify serve ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xieerduos/xieerduos.github.io.git"
+  },
+  "keywords": [],
+  "author": "抖音@程序员李钟意",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xieerduos/xieerduos.github.io/issues"
+  },
+  "homepage": "https://xieerduos.github.io/",
+  "dependencies": {
+    "docsify-cli": "^4.4.4"
+  }
+}
