@@ -148,3 +148,17 @@ npx husky add .husky/pre-commit "npx lint-staged"
 commit 时效果如下
 
 <img src="../images/frontend/prettier_commit_githook.png" style="max-width: 600px;"><br>
+
+## VsCode 配置默认 prettier 格式化文件
+
+1. 要格式化的文件 鼠标右键 - 使用...格式化文档
+
+<img src="../images/frontend/prettier_use_prettier_format.png" style="max-width: 600px;"><br>
+
+2. 配置默认格式化程序
+
+<img src="../images/frontend/prettier_use_prettier_select_default.png" style="max-width: 600px;"><br>
+
+3. 选择 Prettier code formatter
+
+<img src="../images/frontend/prettier_use_prettier_select_default_Prettier-code-formatter.png" style="max-width: 600px;"><br>
