@@ -19,3 +19,5 @@
 -   [一秒查看开源代码](/frontend/一秒查看开源代码.md)
 
 -   [一秒变黑客](/frontend/一秒变黑客.md)
+
+-   [Windows如何安装nvm管理nodejs](/frontend/Windows如何安装nvm管理nodejs.md)
