@@ -1,106 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>抖音@程序员李钟意</title>
+    <link rel="icon" href="./logo.svg?" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+    <style>
+      /* #region 全局样式 */
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
 
-<head>
-  <meta charset="UTF-8">
-  <title>抖音@程序员李钟意</title>
-  <link rel="icon" href="./logo.svg?">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  <style>
-    /* #region 全局样式 */
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-    }
+      body {
+        font-size: 16px;
+      }
 
-    body {
-      font-size: 16px;
-    }
+      /* #endregion */
+    </style>
+  </head>
 
-    /* #endregion */
-  </style>
-</head>
+  <body>
+    <div id="app"></div>
+    <script>
+      window.$docsify = {
+        // name: '抖音@程序员李钟意', // 左上角的名称
+        repo: 'https://github.com/xieerduos/xieerduos.github.io', // 右上角的 github 猫
 
-<body>
-  <div id="app"></div>
-  <script>
-    window.$docsify = {
-      // name: '抖音@程序员李钟意', // 左上角的名称
-      repo: 'https://github.com/xieerduos/xieerduos.github.io', // 右上角的 github 猫
+        loadSidebar: true, // 定制侧边栏 _sidebar.md生效
+        // alias: {
+        //   '/.*/_sidebar.md': '/_sidebar.md' // 嵌套的侧边栏
+        // },
 
-      loadSidebar: true, // 定制侧边栏 _sidebar.md生效
-      // alias: {
-      //   '/.*/_sidebar.md': '/_sidebar.md' // 嵌套的侧边栏
-      // },
+        subMaxLevel: 4, // 显示目录级
 
-      subMaxLevel: 4, // 显示目录级
+        // #region 全文检索
+        search: {
+          maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+          paths: 'auto', // or 'auto'
+          placeholder: '输入关键字搜索',
+          placeholder: {
+            '/en/': 'Type to search',
+            '/': '输入关键字搜索'
+          },
+          noData: {
+            '/en/': 'No Results',
+            '/': '找不到结果'
+          },
+          // 搜索标题的最大层级, 1 - 6
+          depth: 6,
+          hideOtherSidebarContent: true, // 是否隐藏其他侧边栏内容
+          // 避免搜索索引冲突
+          // 同一域下的多个网站之间
+          namespace: 'website-1',
+          // 使用不同的索引作为路径前缀（namespaces）
+          // 注意：仅适用于 paths: 'auto' 模式
+          // 初始化索引时，我们从侧边栏查找第一个路径
+          // 如果它与列表中的前缀匹配，我们将切换到相应的索引
+          pathNamespaces: ['/en'],
 
-      // #region 全文检索
-      search: {
-        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-        paths: 'auto', // or 'auto'
-        placeholder: '输入关键字搜索',
-        placeholder: {
-          '/en/': 'Type to search',
-          '/': '输入关键字搜索'
+          // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
+          // 匹配到的字符串将被用来识别索引
+          pathNamespaces: /^(\/(en))?(\/(v1|v2))?/
         },
-        noData: {
-          '/en/': 'No Results',
-          '/': '找不到结果'
-        },
-        // 搜索标题的最大层级, 1 - 6
-        depth: 6,
-        hideOtherSidebarContent: true, // 是否隐藏其他侧边栏内容
-        // 避免搜索索引冲突
-        // 同一域下的多个网站之间
-        namespace: 'website-1',
-        // 使用不同的索引作为路径前缀（namespaces）
-        // 注意：仅适用于 paths: 'auto' 模式
-        // 初始化索引时，我们从侧边栏查找第一个路径
-        // 如果它与列表中的前缀匹配，我们将切换到相应的索引
-        pathNamespaces: ['/en'],
+        // #endregion
+        // 统计字数 (显示在每一个文章的有上角)
+        count: {
+          countable: true,
+          fontsize: '0.9em',
+          color: 'rgb(90,90,90)',
+          language: 'chinese'
+        }
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <!-- 全文检索 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 图片缩放 - Zoom image -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- 复制到剪贴板 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- 代码高亮 -->
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+    <!-- 字数统计 https://docsify.js.org/#/zh-cn/plugins?id=%e5%ad%97%e6%95%b0%e7%bb%9f%e8%ae%a1 -->
+    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+    <!-- 谷歌分析 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YQQ3EKMQ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-        // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
-        // 匹配到的字符串将被用来识别索引
-        pathNamespaces: /^(\/(en))?(\/(v1|v2))?/
-      },
-      // #endregion
-      // 统计字数 (显示在每一个文章的有上角)
-      count: {
-        countable: true,
-        fontsize: '0.9em',
-        color: 'rgb(90,90,90)',
-        language: 'chinese'
-      },
-    }
-  </script>
-  <!-- Docsify v4 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <!-- 全文检索 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <!-- 图片缩放 - Zoom image -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
-  <!-- 复制到剪贴板 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-  <!-- 代码高亮 -->
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <!-- 字数统计 https://docsify.js.org/#/zh-cn/plugins?id=%e5%ad%97%e6%95%b0%e7%bb%9f%e8%ae%a1 -->
-  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-  <!-- 谷歌分析 -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YQQ3EKMQ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-C1YQQ3EKMQ");
-  </script>
-</body>
-
+      gtag('config', 'G-C1YQQ3EKMQ');
+    </script>
+  </body>
 </html>

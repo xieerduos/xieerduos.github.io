@@ -151,32 +151,32 @@ window.$docsify = {
   // #region 全文检索
   search: {
     maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-    paths: "auto", // or 'auto'
-    placeholder: "输入关键字搜索",
+    paths: 'auto', // or 'auto'
+    placeholder: '输入关键字搜索',
     placeholder: {
-      "/en/": "Type to search",
-      "/": "输入关键字搜索",
+      '/en/': 'Type to search',
+      '/': '输入关键字搜索'
     },
     noData: {
-      "/en/": "No Results",
-      "/": "找不到结果",
+      '/en/': 'No Results',
+      '/': '找不到结果'
     },
     // 搜索标题的最大层级, 1 - 6
     depth: 6,
     hideOtherSidebarContent: true, // 是否隐藏其他侧边栏内容
     // 避免搜索索引冲突
     // 同一域下的多个网站之间
-    namespace: "website-1",
+    namespace: 'website-1',
     // 使用不同的索引作为路径前缀（namespaces）
     // 注意：仅适用于 paths: 'auto' 模式
     // 初始化索引时，我们从侧边栏查找第一个路径
     // 如果它与列表中的前缀匹配，我们将切换到相应的索引
-    pathNamespaces: ["/en"],
+    pathNamespaces: ['/en'],
 
     // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
     // 匹配到的字符串将被用来识别索引
-    pathNamespaces: /^(\/(en))?(\/(v1|v2))?/,
-  },
+    pathNamespaces: /^(\/(en))?(\/(v1|v2))?/
+  }
   // #endregion
 };
 ```
@@ -194,7 +194,7 @@ window.$docsify = {
 
 ```js
 window.$docsify = {
-  loadSidebar: true, // 定制侧边栏 _sidebar.md生效
+  loadSidebar: true // 定制侧边栏 _sidebar.md生效
 };
 ```
 
@@ -215,7 +215,7 @@ window.$docsify = {
 ```js
 window.$docsify = {
   // h1 ~ h6
-  subMaxLevel: 4, // 默认显示 `####` (h4)以内的标题
+  subMaxLevel: 4 // 默认显示 `####` (h4)以内的标题
 };
 ```
 
@@ -233,17 +233,14 @@ https://analytics.google.com/
 
 ```html
 <!-- Google tag (gtag.js) -->
-<script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-C1YQQ3EKMQ"
-></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C1YQQ3EKMQ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
-  gtag("js", new Date());
+  gtag('js', new Date());
 
-  gtag("config", "G-C1YQQ3EKMQ");
+  gtag('config', 'G-C1YQQ3EKMQ');
 </script>
 ```

@@ -4,7 +4,8 @@
   "description": "面向搜索引擎编程",
   "main": "index.js",
   "scripts": {
-    "start": "docsify serve ."
+    "start": "docsify serve .",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,13 @@
   "homepage": "https://xieerduos.github.io/",
   "dependencies": {
     "docsify-cli": "^4.4.4"
+  },
+  "devDependencies": {
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "2.7.1"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
