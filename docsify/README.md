@@ -90,23 +90,23 @@ https://gitee.com/help/articles/4136
 
 1. 首页 - 服务 - Gitee Pages
 
-<img src="./images/gitee_page.jpg"  style="max-width: 600px;"/><br/>
+<img src="../images/docsify/gitee_page.jpg"  style="max-width: 600px;"/><br/>
 
 2. 点击个人设置完成验证
 
-<img src="./images/gitee_page_2.jpg"  style="max-width: 600px;"/><br/>
+<img src="../images/docsify/gitee_page_2.jpg"  style="max-width: 600px;"/><br/>
 
 3. 开始认证
 
-<img src="./images/gitee_page_3.jpg"  style="max-width: 600px;"/><br/>
+<img src="../images/docsify/gitee_page_3.jpg"  style="max-width: 600px;"/><br/>
 
 4. 输入表单信息
 
-<img src="./images/gitee_page_4.jpg"  style="max-width: 600px;"/><br/>
+<img src="./images/docsify/gitee_page_4.jpg"  style="max-width: 600px;"/><br/>
 
 5. 提交认证
 
-<img src="./images/gitee_page_5.jpg"  style="max-width: 600px;"/><br/>
+<img src="./images/docsify/gitee_page_5.jpg"  style="max-width: 600px;"/><br/>
 
 6. 等待审核通过
 
@@ -244,3 +244,33 @@ https://analytics.google.com/
   gtag('config', 'G-C1YQQ3EKMQ');
 </script>
 ```
+
+### 增加编辑文档按钮
+
+新增代码
+
+```html
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+<!-- docsify-edit-on-github -->
+<!-- <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script> -->
+<script>
+  window.$docsify = {
+    // ...
+    plugins: [
+      // EditOnGithubPlugin.create('https://github.com/xieerduos/xieerduos.github.io/blob/main/', null, '编辑'),
+      function (hook, vm) {
+        hook.beforeEach(function (html) {
+          var url = 'https://github.com/xieerduos/xieerduos.github.io/blob/main/' + vm.route.file;
+          var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+
+          return editHtml + html + '\n----\n' + 'Last modified {docsify-updated} ' + editHtml;
+        });
+      }
+    ]
+  };
+</script>
+```
+
+效果图
+
+<img src="../images/docsify/docsify_edit_document.png"  style="max-width: 600px;"/><br/>

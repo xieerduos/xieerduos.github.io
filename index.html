@@ -8,6 +8,8 @@
     <meta name="description" content="Description" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css" />
+    <!-- docsify-edit-on-github -->
+    <!-- <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script> -->
     <style>
       /* #region 全局样式 */
       html,
@@ -74,7 +76,18 @@
           fontsize: '0.9em',
           color: 'rgb(90,90,90)',
           language: 'chinese'
-        }
+        },
+        plugins: [
+          // EditOnGithubPlugin.create('https://github.com/xieerduos/xieerduos.github.io/blob/main/', null, '编辑'),
+          function (hook, vm) {
+            hook.beforeEach(function (html) {
+              var url = 'https://github.com/xieerduos/xieerduos.github.io/blob/main/' + vm.route.file;
+              var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+
+              return editHtml + html + '\n----\n' + 'Last modified {docsify-updated} ' + editHtml;
+            });
+          }
+        ]
       };
     </script>
     <!-- Docsify v4 -->
