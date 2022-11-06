@@ -2,6 +2,8 @@
 
 官方文档，在进行下面操作之前，先看一下官网文档
 
+https://prettier.io/
+
 https://prettier.io/docs/en/install.html
 
 ## 安装 prettier
@@ -29,6 +31,8 @@ components.d.ts
 ```
 
 ## 创建 .prettierrc 文件，内容如下
+
+来源于这里自己配置的 https://prettier.io/playground/
 
 ```JSON
 {
