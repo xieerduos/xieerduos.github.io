@@ -23,3 +23,5 @@
 - [Windows 如何安装 nvm 管理 nodejs](/frontend/Windows如何安装nvm管理nodejs.md)
 
 - [使用 prettier 格式化你的代码](/frontend/使用prettier格式化你的代码.md)
+
+- [如何让浏览器马上进行垃圾回收](/frontend/如何让浏览器马上进行垃圾回收.md)
