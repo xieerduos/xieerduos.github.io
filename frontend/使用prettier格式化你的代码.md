@@ -166,3 +166,7 @@ commit 时效果如下
 3. 选择 Prettier code formatter
 
 <img src="../images/frontend/prettier_use_prettier_select_default_Prettier-code-formatter.png" style="max-width: 600px;"><br>
+
+## 校验 commit 信息
+
+使用 husky 进行提交前的代码规范校验和 commit 信息检查 https://blog.csdn.net/huangpb123/article/details/102690412
