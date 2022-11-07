@@ -11,7 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/xieerduos/xieerduos.github.io.git"
   },
-  "keywords": ["程序员李钟意首页", "docsify"],
+  "keywords": [
+    "程序员李钟意首页",
+    "docsify"
+  ],
   "author": "抖音@程序员李钟意",
   "license": "ISC",
   "bugs": {
