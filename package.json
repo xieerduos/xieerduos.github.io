@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "docsify serve .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "check": "npx prettier --check .",
+    "write": "npx prettier --write ."
   },
   "repository": {
     "type": "git",
