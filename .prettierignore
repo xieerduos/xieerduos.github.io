@@ -5,6 +5,10 @@ node_modules
 package.json
 package-lock.json
 
+/.nginx
+
+docker-compose.yml
+
 **/*.svg
 .dockerignore
 .DS_Store

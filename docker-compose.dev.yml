@@ -1,0 +1,14 @@
+services:
+  frontend_lizhongyi_home_docs:
+    build: ./.nginx # 到./nginx目录下面的Dockerfile构建镜像
+    container_name: frontend_lizhongyi_home_docs # 容器名称
+    networks:
+      - docs_net
+    # 公开到宿主主机的端口号
+    ports:
+      - 3300:3000
+    volumes:
+      - ./:/docs # 挂载卷 把当前项目根目录的 ./ 映射到 容器/docs
+networks:
+  # 默认端口会公开到本地
+  docs_net:

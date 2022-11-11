@@ -23,6 +23,38 @@ npm start
 
 ---
 
+构建部署
+
+```bash
+# 构建镜像
+docker-compose -f docker-compose.dev.yml build
+# 启动服务 后台运行
+docker-compose -f docker-compose.dev.yml up -d
+```
+
+本地访问地址 http://localhost:3300/
+
+---
+
+多个 docker-compose.yml 通信
+
+构建部署 使用下面的命令执行
+
+```bash
+# 创建share_aly_nginx共享网络
+# 用于多个docker-compose之间的通信
+docker network create -d bridge share_aly_nginx
+# 构建镜像
+docker-compose build
+# 启动服务 后台运行
+docker-compose up -d
+
+```
+
+本地访问地址 http://localhost:3300/
+
+---
+
 - [抖音视频更新记录](/douyin/README.md)
 
 - [Docsify 文档网站搭建过程](/docsify/README.md)
