@@ -274,3 +274,16 @@ https://analytics.google.com/
 效果图
 
 <img src="../images/docsify/docsify_edit_document.png"  style="max-width: 600px;"/><br/>
+
+### 解决目录下不存在 \_sidebar.md 时出现 404 bug
+
+<img src="../images/docsify/docsify_sidebar_404.png"  style="max-width: 600px;"/><br/>
+
+```js
+window.$docsify = {
+  loadSidebar: true, // 定制侧边栏 _sidebar.md生效
+  alias: {
+    '/.*/_sidebar.md': '/_sidebar.md' // 嵌套的侧边栏
+  }
+};
+```
