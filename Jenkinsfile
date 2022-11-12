@@ -1,5 +1,5 @@
 def aly_workspace = "/home" // 阿里云服务器工作目录
-def aly_project_name = "aly_nginx" // 阿里云服务器部署项目名称
+def aly_project_name = "gitee.io" // 阿里云服务器部署项目名称
 
 stage("部署项目")
 
