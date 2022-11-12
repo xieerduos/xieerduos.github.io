@@ -7,7 +7,8 @@
     "start": "docsify serve .",
     "prepare": "husky install",
     "check": "npx prettier --check .",
-    "write": "npx prettier --write ."
+    "write": "npx prettier --write .",
+    "deploy": "docker-compose down && docker-compose build && docker-compose up -d"
   },
   "repository": {
     "type": "git",

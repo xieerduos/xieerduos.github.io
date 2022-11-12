@@ -11,7 +11,7 @@ node {
             \""
         sh "ssh -o StrictHostKeyChecking=yes ${aly_username}@${aly_server_ip} \" \
             cd ${aly_workspace}/${aly_project_name} \
-            && npm run restart \
+            && npm run deploy \
             \""
     }
 }
