@@ -1,0 +1,66 @@
+# 端到端加密 EE2E
+
+IBM： https://www.ibm.com/cn-zh/topics/end-to-end-encryption
+
+维基百科：https://zh.m.wikipedia.org/zh-hans/端到端加密
+
+## 什么是端到端加密？
+
+端到端加密 (End-to-end encryption，缩写：E2EE) 是一种安全通信过程，可防止第三方访问从一个端点传输到另一个端点的数据。
+
+原理：非对称加密。
+
+## 什么是非对称加密？
+
+对称加密
+
+```
+使用同一个密钥加密和解密
+```
+
+非对称加密
+
+```
+公钥加密：当且仅当私钥解密。
+
+私钥加密：私钥、公钥都可以解密。
+```
+
+## 有了 https 为什么还要端到端加密？
+
+1. https 保护的是数据从浏览器到服务器这个过程的安全性，并不保证数据在服务器的安全性。
+
+2. 如果我们希望数据不希望服务器可以看到，然后服务器只是做一个转发的操作，不希望会话以外的人看到消息，那么端到端加密就可以了。
+
+## 端到端加密方案
+
+对称加密 AES 和非对称加密 RSA + 共享密钥（解决离线的问题）的方式来实现
+
+## 不是说非对称加密最安全了为什么这里还用 AES 对称加密算法？
+
+首先 RAS 非对称加密的效率很低，并不适合对大量数据进行加密
+
+那么怎么解决呢？
+
+使用对称加密 AES 算法加密消息内容，使用非对称加密来加密 AES 密钥
+
+## 哪些应用使用了 端到端加密
+
+WhatsApp（国外的即时通讯）
+
+Zoom （实现了端到端加密会议）
+
+## 如何使用代码实现？
+
+https://github.com/rzcoder/node-rsa
+
+```js
+const NodeRSA = require('node-rsa');
+const key = new NodeRSA({b: 512});
+
+const text = 'Hello RSA!';
+const encrypted = key.encrypt(text, 'base64');
+console.log('encrypted: ', encrypted);
+const decrypted = key.decrypt(encrypted, 'utf8');
+console.log('decrypted: ', decrypted);
+```
