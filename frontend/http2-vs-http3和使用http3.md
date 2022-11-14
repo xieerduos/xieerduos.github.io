@@ -22,7 +22,19 @@ https://requestmetrics.com/web-performance/http3-is-fast#:~:text=The%20major%20d
 
 ## 如何在你的网站中使用 http3 （必须是 https）
 
+docker nginx http3 https://hub.docker.com/r/macbre/nginx-http3
+
+https://github.com/macbre/docker-nginx-http3
+
 https://www.nginx.com/blog/our-roadmap-quic-http-3-support-nginx/
+
+## 浏览器启用 http3
+
+基于 nginx quic 分支体验 http3 https://mytechshares.com/2022/02/14/nginx-blog-quic/
+
+**浏览器支持**
+
+对于 chrome 需要打开 chrome://flags/, 检索 quic protocol 然后 enable QUIC
 
 ## https
 
