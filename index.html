@@ -102,7 +102,12 @@
           renderer: {
             code: function (code, lang) {
               var html = '';
-              if (code.match(/^sequenceDiagram/) || code.match(/^graph/) || code.match(/^gantt/)) {
+              if (
+                code.match(/^sequenceDiagram/) ||
+                code.match(/^graph/) ||
+                code.match(/^gantt/) ||
+                code.match(/^flowchart/)
+              ) {
                 html = '<div class="mermaid">' + code + '</div>';
               }
               var hl = Prism.highlight(code, Prism.languages[lang] || Prism.languages.markup);
