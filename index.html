@@ -89,6 +89,10 @@
           }
         ]
       };
+      // google seo error
+      if (/^\/node_modules\//gi.test(window.location.pathname)) {
+        window.location.href = '/';
+      }
     </script>
     <!-- Docsify v4 -->
     <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
