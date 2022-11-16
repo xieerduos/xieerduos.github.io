@@ -287,3 +287,7 @@ window.$docsify = {
   }
 };
 ```
+
+### 增加时序图的支持
+
+https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md
