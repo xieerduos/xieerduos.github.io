@@ -106,6 +106,7 @@
                 code.match(/^sequenceDiagram/) ||
                 code.match(/^graph/) ||
                 code.match(/^gantt/) ||
+                code.match(/^gitGraph/) ||
                 code.match(/^flowchart/)
               ) {
                 html = '<div class="mermaid">' + code + '</div>';
