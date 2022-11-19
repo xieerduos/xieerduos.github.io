@@ -46,4 +46,4 @@
 
 - [Mermaid 图表绘制工具](/frontend/1118-Mermaid图表绘制工具.md)
 
-- [git-merge 工作流](/frontend/dev/1121-git-merge工作流.md)
+- [git-merge 工作流](/frontend/1119-git-merge工作流.md)
