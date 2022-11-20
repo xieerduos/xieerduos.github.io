@@ -1,0 +1,15 @@
+{
+  "name": "puppeteer",
+  "version": "1.0.0",
+  "description": "https://github.com/puppeteer/puppeteer",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cross-env DEBUG=puppeteer:* node ./1-index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^19.2.2"
+  }
+}
