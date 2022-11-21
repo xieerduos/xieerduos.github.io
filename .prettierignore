@@ -20,3 +20,6 @@ Dockerfile*
 .prettierignore
 *.lock
 yarn-error.log
+
+
+/douyin/RankingList.md

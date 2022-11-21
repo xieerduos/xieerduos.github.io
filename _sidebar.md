@@ -2,6 +2,8 @@
 
 - [抖音@程序员李钟意-首页](/)
 
+- [抖音视频点赞排行榜](/douyin/RankingList.md)
+
 - [抖音视频更新记录](/douyin/README.md)
 
 - [如何白嫖 UI 设计稿](/frontend/如何白嫖UI设计稿.md)
@@ -51,3 +53,5 @@
 - [Nodejs 爬虫小白入门](/frontend/1120-Nodejs爬虫小白入门.md)
 
 - [Nodejs 爬虫 - Nodejs 快速入门 Puppeteer](/frontend/1121-Nodejs爬虫-快速入门Puppeteer.md)
+
+- [Nodejs 爬虫进阶自动生成视频点赞排行榜](/frontend/1122-Nodejs爬虫进阶自动生成视频点赞排行榜.md)
