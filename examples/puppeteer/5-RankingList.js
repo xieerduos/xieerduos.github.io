@@ -193,7 +193,7 @@ function drawPieChart(filePath, tagObj, {title = '', flag = 'a+'} = {}) {
 async function getVideoList() {
   log('puppeteer 开始');
   const browser = await puppeteer.launch({
-    headless: false, // 是否为无头浏览器，默认为true 这里为了演示 设置false
+    headless: true, // 是否为无头浏览器，默认为true 这里为了演示 设置false
     devtools: false // 是否打开开发者工具
     // slowMo: 0 // slow down by 250ms
   });

@@ -4,33 +4,33 @@
 
 |序号|点赞|视频标题|标签|
 |:--:|:--|:--|:--|
-|1|36|[Nodejs爬虫进阶自动生成视频点赞排行榜         ](https://douyin.com/video/7168574795687152927)|前端,程序员,代码,编程,vue|
-|2|125|[前端Nodejs 爬虫小白入门，Puppeteer 爬虫爬取数据演示   ](https://douyin.com/video/7168197260734401799)|前端,代码,程序员|
-|3|595|[前端Nodejs 爬虫小白入门，Node爬取数据演示](https://douyin.com/video/7167758991055998222)||
-|4|363|[团队多人协作代码管理 git merge 工作流     ](https://douyin.com/video/7167047701987708173)|程序员,代码,前端|
-|5|77|[Markdown Mermaid 图表绘制工具     ](https://douyin.com/video/7167019782645108005)|前端,程序员,知识分享,编程,代码|
-|6|103|[扒一下炫酷的背景的代码  ](https://douyin.com/video/7166650705401400584)|程序员,前端|
-|7|143|[http3来了     ](https://douyin.com/video/7166265186108624164)|前端,程序员,代码,编程|
-|8|488|[Jenkins自动化部署项目代码          ](https://douyin.com/video/7165912754023419172)|jenkins,前端,代码,程序员,编程|
-|9|223|[一张时序图看懂https原理        ](https://douyin.com/video/7165535311575944462)|前端,代码,http,编程|
-|10|317|[快速了解端到端加密E2EE       ](https://douyin.com/video/7165167108660153636)|代码,编程,程序员,前端|
-|总计|2470|||
+|1|43|[Nodejs爬虫进阶自动生成视频点赞排行榜         ](https://douyin.com/video/7168574795687152927)|前端,程序员,代码,编程,vue|
+|2|143|[前端Nodejs 爬虫小白入门，Puppeteer 爬虫爬取数据演示   ](https://douyin.com/video/7168197260734401799)|前端,代码,程序员|
+|3|614|[前端Nodejs 爬虫小白入门，Node爬取数据演示](https://douyin.com/video/7167758991055998222)||
+|4|367|[团队多人协作代码管理 git merge 工作流     ](https://douyin.com/video/7167047701987708173)|程序员,代码,前端|
+|5|80|[Markdown Mermaid 图表绘制工具     ](https://douyin.com/video/7167019782645108005)|前端,程序员,知识分享,编程,代码|
+|6|104|[扒一下炫酷的背景的代码  ](https://douyin.com/video/7166650705401400584)|程序员,前端|
+|7|149|[http3来了     ](https://douyin.com/video/7166265186108624164)|前端,程序员,代码,编程|
+|8|512|[Jenkins自动化部署项目代码          ](https://douyin.com/video/7165912754023419172)|jenkins,前端,代码,程序员,编程|
+|9|225|[一张时序图看懂https原理        ](https://douyin.com/video/7165535311575944462)|前端,代码,http,编程|
+|10|331|[快速了解端到端加密E2EE       ](https://douyin.com/video/7165167108660153636)|代码,编程,程序员,前端|
+|总计|2568|||
 
 ## 点赞最多的10条视频
 
 |序号|点赞|视频标题|标签|
 |:--:|:--|:--|:--|
-|1|2566|[十分推荐vue element admin开源项目 非常适合刚刚入门前端的同学学习   ](https://douyin.com/video/7161996754227907873)|程序员,代码,前端,编程|
-|2|971|[一行代码实现移动端适配 ](https://douyin.com/video/7158472643610561825)|前端|
+|1|2576|[十分推荐vue element admin开源项目 非常适合刚刚入门前端的同学学习   ](https://douyin.com/video/7161996754227907873)|程序员,代码,前端,编程|
+|2|975|[一行代码实现移动端适配 ](https://douyin.com/video/7158472643610561825)|前端|
 |3|615|[本地存储要使用localForage  ](https://douyin.com/video/7158668556664573188)|前端|
-|4|595|[前端Nodejs 爬虫小白入门，Node爬取数据演示](https://douyin.com/video/7167758991055998222)||
-|5|488|[Jenkins自动化部署项目代码          ](https://douyin.com/video/7165912754023419172)|jenkins,前端,代码,程序员,编程|
+|4|614|[前端Nodejs 爬虫小白入门，Node爬取数据演示](https://douyin.com/video/7167758991055998222)||
+|5|512|[Jenkins自动化部署项目代码          ](https://douyin.com/video/7165912754023419172)|jenkins,前端,代码,程序员,编程|
 |6|452|[代码折叠region 适用于任何编程语言    ](https://douyin.com/video/7160892403325439271)|代码,编程,程序员,前端|
 |7|395|[一秒查看开源代码     ](https://douyin.com/video/7161275091140087073)|代码,程序员,编程,前端|
-|8|363|[团队多人协作代码管理 git merge 工作流     ](https://douyin.com/video/7167047701987708173)|程序员,代码,前端|
-|9|317|[快速了解端到端加密E2EE       ](https://douyin.com/video/7165167108660153636)|代码,编程,程序员,前端|
+|8|367|[团队多人协作代码管理 git merge 工作流     ](https://douyin.com/video/7167047701987708173)|程序员,代码,前端|
+|9|331|[快速了解端到端加密E2EE       ](https://douyin.com/video/7165167108660153636)|代码,编程,程序员,前端|
 |10|226|[html css命名 ](https://douyin.com/video/7157725337302994214)|前端|
-|总计|6988|||
+|总计|7063|||
 
 ## 统计标签出现的次数
 
