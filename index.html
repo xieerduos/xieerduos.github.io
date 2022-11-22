@@ -11,20 +11,17 @@
     <!-- docsify-edit-on-github -->
     <!-- <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script> -->
     <style>
-      /* #region 全局样式 */
       html,
       body {
         margin: 0;
         padding: 0;
       }
-
       body {
         font-size: 16px;
       }
       .markdown-section {
         max-width: 1400px;
       }
-      /* #endregion */
     </style>
   </head>
 
@@ -32,61 +29,29 @@
     <div id="app"></div>
     <script>
       window.$docsify = {
-        // name: '抖音@程序员李钟意', // 左上角的名称
-        repo: 'https://github.com/xieerduos/xieerduos.github.io', // 右上角的 github 猫
-
-        loadSidebar: true, // 定制侧边栏 _sidebar.md生效
-        alias: {
-          '/.*/_sidebar.md': '/_sidebar.md' // 嵌套的侧边栏
-        },
-
-        subMaxLevel: 4, // 显示目录级
-
-        // #region 全文检索
+        repo: 'https://github.com/xieerduos/xieerduos.github.io',
+        loadSidebar: true,
+        alias: {'/.*/_sidebar.md': '/_sidebar.md'},
+        subMaxLevel: 4,
         search: {
-          maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-          paths: 'auto', // or 'auto'
+          maxAge: 86400000,
+          paths: 'auto',
           placeholder: '输入关键字搜索',
-          placeholder: {
-            '/en/': 'Type to search',
-            '/': '输入关键字搜索'
-          },
-          noData: {
-            '/en/': 'No Results',
-            '/': '找不到结果'
-          },
-          // 搜索标题的最大层级, 1 - 6
+          placeholder: {'/en/': 'Type to search', '/': '输入关键字搜索'},
+          noData: {'/en/': 'No Results', '/': '找不到结果'},
           depth: 6,
-          hideOtherSidebarContent: true, // 是否隐藏其他侧边栏内容
-          // 避免搜索索引冲突
-          // 同一域下的多个网站之间
+          hideOtherSidebarContent: true,
           namespace: 'website-1',
-          // 使用不同的索引作为路径前缀（namespaces）
-          // 注意：仅适用于 paths: 'auto' 模式
-          // 初始化索引时，我们从侧边栏查找第一个路径
-          // 如果它与列表中的前缀匹配，我们将切换到相应的索引
           pathNamespaces: ['/en'],
-
-          // 您可以提供一个正则表达式来匹配前缀。在这种情况下，
-          // 匹配到的字符串将被用来识别索引
           pathNamespaces: /^(\/(en))?(\/(v1|v2))?/
         },
-        // #endregion
-        // 统计字数 (显示在每一个文章的有上角)
-        count: {
-          countable: true,
-          fontsize: '0.9em',
-          color: 'rgb(90,90,90)',
-          language: 'chinese'
-        },
+        count: {countable: true, fontsize: '0.9em', color: 'rgb(90,90,90)', language: 'chinese'},
         plugins: [
-          // EditOnGithubPlugin.create('https://github.com/xieerduos/xieerduos.github.io/blob/main/', null, '编辑'),
           function (hook, vm) {
             hook.beforeEach(function (html) {
               var url = 'https://github.com/xieerduos/xieerduos.github.io/blob/main/' + vm.route.file;
               var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
-
-              return editHtml + html + '\n----\n' + 'Last modified {docsify-updated} ' + editHtml;
+              return editHtml + html + '\n----\nLast modified {docsify-updated} ' + editHtml;
             });
           },
           function (hook, vm) {
@@ -116,21 +81,14 @@
               return (
                 html + '<pre v-pre data-lang="' + lang + '"><code class="lang-' + lang + '">' + hl + '</code></pre>'
               );
-              // return html;
             }
           }
         }
       };
-      // google seo error
       if (/^\/node_modules\//gi.test(window.location.pathname)) {
         window.location.href = '/';
       }
     </script>
-    <!-- <script>
-      window.onhashchange = function (a) {
-       console.log('location.hash :>> ', window.decodeURI(location.hash));
-      };
-    </script> -->
     <!-- Docsify v4 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
     <!-- 全文检索 -->
@@ -156,5 +114,32 @@
       gtag('config', 'G-C1YQQ3EKMQ');
     </script> -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid@9.2.2/dist/mermaid.min.js"></script>
+    <script type="module">
+      import {v4 as uuidv4} from 'https://jspm.dev/uuid';
+      let uuid = localStorage.getItem('uuid');
+      if (!uuid) {
+        uuid = uuidv4();
+        sessionStorage.setItem('uuid', uuid);
+      }
+      window.onhashchange = onhashchange;
+      onhashchange();
+      function onhashchange() {
+        let data = 'hash=' + window.decodeURI(location.hash).replace(/^#/, '');
+        data += '&uuid=' + uuid;
+        ajaxPost('/api/category/', data, function () {});
+      }
+
+      function ajaxPost(url, data, callback) {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.send(data);
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            callback(xhr.responseText);
+          }
+        };
+      }
+    </script>
   </body>
 </html>
