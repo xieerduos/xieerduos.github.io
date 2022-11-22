@@ -32,14 +32,14 @@ https://github.com/xieerduos/xieerduos.github.io
 |  1   | [Nodejs 爬虫小白入门](/frontend/1120-Nodejs爬虫小白入门)                      |
 |  2   | [Nodejs 爬虫-快速入门 Puppeteer](/frontend/1121-Nodejs爬虫-快速入门Puppeteer) |
 
-### 切换目录
+## 切换目录
 
 ```bash
 # 切换目录
 cd /examples/puppeteer/
 ```
 
-### 安装 puppeteer
+## 安装 puppeteer
 
 ```bash
 # 也可以cnpm install，注意node 版本16.x以上
@@ -47,11 +47,15 @@ npm install
 
 ```
 
-### 运行 node 执行代码 自动生成排行榜
+## 运行
+
+### node 执行代码
 
 ```bash
 node 5-RankingList.js
 ```
+
+### 日志文件
 
 会自动创建 `5-RankingList.log` 日志文件
 
@@ -73,6 +77,8 @@ node 5-RankingList.js
 [2022-11-22 03:27:38.066] [绘制饼图]
 [2022-11-22 03:27:38.070] [done]
 ```
+
+### 自动生成排行榜
 
 通过爬虫获取数据
 
@@ -148,7 +154,9 @@ node 5-RankingList.js
     ```
 ````
 
-`/examples/puppeteer/5-RankingList.js` 完整代码如下
+## 完整代码如下
+
+`/examples/puppeteer/5-RankingList.js`
 
 ````js
 const fs = require('fs');
@@ -473,3 +481,7 @@ function log(...reset) {
 }
 // #endregion
 ````
+
+## 代码执行结果
+
+[抖音视频点赞排行榜](/douyin/RankingList?id=抖音视频点赞排行榜)
