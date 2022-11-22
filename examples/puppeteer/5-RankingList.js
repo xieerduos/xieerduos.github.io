@@ -308,14 +308,27 @@ async function getVideoList() {
 }
 
 // #region 把控制台信息写入到日志文件
-// todo todo
-// todo todo
-// 文件超出一定大小 重新写文件
 
 function log(...reset) {
+  // 日志内容
   const data = `[${dayjs(new Date()).format('YYYY-MM-DD HH:mm:ss.SSS')}] [${reset.join(',')}]\n`;
 
+  // 写入日志的路径
+  const logPath = path.join(__dirname, '5-RankingList.log');
+
   // 以后面追加的方式写入文件
-  fs.writeFileSync('5-RankingList.log', data, {encoding: 'utf8', flag: 'a+'});
+  fs.writeFileSync(logPath, data, {encoding: 'utf8', flag: 'a+'});
+
+  // #region 文件超出一定大小 重新写文件
+
+  // 查看日志的文件信息
+  const fileInfo = fs.statSync(logPath);
+
+  // 判断是否大于 5M
+  if (fileInfo.size >= 1024 * 1024 * 5) {
+    // 大于5M重写文件
+    fs.renameSync(logPath, `${path.basename(logPath, '.log')}.old.log`);
+  }
+  // #endregion
 }
 // #endregion
