@@ -70,7 +70,7 @@ Checking formatting...
 [warn] frontend\代码块收起region.md
 [warn] frontend\如何白嫖UI设计稿.md
 [warn] frontend\十分推荐的开源项目.md
-[warn] frontend\使用prettier格式化你的代码.md
+[warn] frontend\1106-使用prettier格式化你的代码.md
 [warn] frontend\一秒变黑客.md
 [warn] frontend\一秒查看开源代码.md
 [warn] frontend\移动端适配vw+rem解决方案.md
@@ -92,7 +92,7 @@ douyin\README.md 111ms
 frontend\代码块收起region.md 188ms
 frontend\如何白嫖UI设计稿.md 15ms
 frontend\十分推荐的开源项目.md 14ms
-frontend\使用prettier格式化你的代码.md 33ms
+frontend\1106-使用prettier格式化你的代码.md 33ms
 frontend\一秒变黑客.md 95ms
 frontend\一秒查看开源代码.md 16ms
 frontend\移动端适配vw+rem解决方案.md 89ms
