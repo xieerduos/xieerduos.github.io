@@ -5,12 +5,16 @@
 > 不是广告<br/>
 
 > 1.亲测有用（超实用工具）<br/>
-
+>
 > 2.完全免费（按照视频操作）<br/>
 
-## 分区助手怎么用？
+## 使用 Windows 的你有没有面的情况
 
-https://www.disktool.cn/jiaocheng/index.html?paproinst
+![](../images/frontend/windows_partition-unevenly.png)
+
+## 解决办法
+
+把其他磁盘空闲容量分配给满了的磁盘 - 使用工具 `傲梅分区助手`
 
 ## 下载傲梅分区助手
 
@@ -25,6 +29,10 @@ https://www.disktool.cn/jiaocheng/index.html?paproinst
 ## 安装分区助手
 
 按照解压按照向导安装就好了
+
+## 分区助手怎么用？
+
+https://www.disktool.cn/jiaocheng/index.html?paproinst
 
 ## 使用分区助手
 
