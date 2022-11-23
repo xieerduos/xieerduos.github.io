@@ -55,3 +55,5 @@
 - [Nodejs 爬虫 - Nodejs 快速入门 Puppeteer](/frontend/1121-Nodejs爬虫-快速入门Puppeteer.md)
 
 - [Nodejs 爬虫进阶自动生成视频点赞排行榜](/frontend/1122-Nodejs爬虫进阶自动生成视频点赞排行榜.md)
+
+- [Windows 电脑 C 盘满了解决方案](/frontend/1123-Windows电脑C盘满了解决方案.md)
