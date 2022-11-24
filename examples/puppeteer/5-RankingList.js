@@ -2,12 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 const dayjs = require('dayjs');
+const child_process = require('child_process');
 
 main();
 
 async function main() {
   try {
     log('开始');
+    const nodeVersion = await getNodeVersion();
+    log('nodeVersion', nodeVersion);
     // 获取视频列表数据
     log('获取视频列表数据');
     const videoList = await getVideoList();
@@ -332,3 +335,16 @@ function log(...reset) {
   // #endregion
 }
 // #endregion
+
+// 获取node版本
+function getNodeVersion() {
+  return new Promise((resolve, reject) => {
+    const nodeVersion = child_process.spawn('node', ['-v']);
+    nodeVersion.stdout.on('data', (data) => {
+      resolve(String(data).trim());
+    });
+    nodeVersion.stdout.on('error', (error) => {
+      reject(error);
+    });
+  });
+}
