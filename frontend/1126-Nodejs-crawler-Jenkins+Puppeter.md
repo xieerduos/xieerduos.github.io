@@ -21,7 +21,7 @@ https://www.cnblogs.com/qican/p/15508250.html
 |  5   | 根据爬取到的数据生成数据统计 .md 文件 |      |
 |  6   | Docsify 文档网站显示出来数据          |      |
 
-## 流程图
+## 时序图
 
 ```Mermaid
 sequenceDiagram
