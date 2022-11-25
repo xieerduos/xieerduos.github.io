@@ -20,7 +20,16 @@ async function main() {
     log('视频列表数据写入排行榜', '共', videoList.length, '条');
 
     // 视频列表数据写入排行榜
-    await writeRankingMdfile(filePath, [], {title: `# 抖音视频点赞排行榜\n\n`, onlyTitle: true});
+    await writeRankingMdfile(filePath, [], {title: `# 抖音视频点赞排行榜\n\n`, onlyTitle: true, flag: 'w+'});
+
+    await writeRankingMdfile(filePath, [], {title: `## 更新时间\n\n`, onlyTitle: true, flag: 'a+'});
+    await writeRankingMdfile(filePath, [], {
+      title: `最近更新时间：${dayjs(new Date()).format('YYYY-MM-DD HH:mm')}<br/>下一次更新时间：${dayjs(new Date())
+        .add(10, 'minute')
+        .format('YYYY-MM-DD HH:mm')}\n\n`,
+      onlyTitle: true,
+      flag: 'a+'
+    });
 
     log('最近的10条视频');
     await writeRankingMdfile(filePath, [...videoList], {
@@ -321,6 +330,8 @@ function log(...reset) {
 
   // 写入日志的路径
   const logPath = path.join(__dirname, '5-RankingList.log');
+
+  console.log(data);
 
   // 以后面追加的方式写入文件
   fs.writeFileSync(logPath, data, {encoding: 'utf8', flag: 'a+'});
