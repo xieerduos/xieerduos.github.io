@@ -60,6 +60,6 @@
 
 - [Webgl 明日方舟官网](/frontend/1124-Webgl明日方舟官网.md)
 
-- [Nodejs 爬虫 Centos7 无法运行 Puppeteer](/frontend/1125-Nodejs爬虫Centos7无法运行Puppeteer.md)
+- [Nodejs 爬虫 Centos 无法运行 Puppeteer 解决方案](/frontend/1125-Nodejs-crawler-Centos-cannot-run-puppeteer.md)
 
-- [Nodejs 爬虫 Jenkins+Puppeteer 定时获取数据](/frontend/1125-Nodejs爬虫Jenkins+Puppeteer定时获取数据.md)
+- [Nodejs 爬虫 Jenkins+Puppeteer 定时获取数据](/frontend/1126-Nodejs-crawler-Jenkins+Puppeter.md)

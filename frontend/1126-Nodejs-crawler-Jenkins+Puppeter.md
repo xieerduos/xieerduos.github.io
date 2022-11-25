@@ -8,7 +8,7 @@ https://www.cnblogs.com/qican/p/15508250.html
 
 我的云服务器系统 centos， 按照 GitHub 官方的步骤未能安装
 
-这是我亲测可用的方法 [Nodejs 爬虫 Centos7 无法运行 Puppeteer 解决方案](/frontend/1125-Nodejs爬虫Centos7无法运行Puppeteer)
+这是我亲测可用的方法 [Nodejs 爬虫 Centos 无法运行 Puppeteer 解决方案](/frontend/1125-Nodejs-crawler-Centos-cannot-run-puppeteer)
 
 ## 步骤
 
