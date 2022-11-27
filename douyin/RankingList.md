@@ -2,39 +2,39 @@
 
 ## 更新时间
 
-最近更新时间：2022-11-27 06:03<br/>下一次更新时间：2022-11-27 06:13
+最近更新时间：2022-11-27 12:03<br/>下一次更新时间：2022-11-27 12:13
 
 ## 最近的10条视频
 
 |序号|点赞|视频标题|标签|
 |:--:|:--|:--|:--|
-|1|108|[Figma builder.io 插件把任意网站变为设计稿，前端同学想要临摹网站设计稿这不就来了    ](https://douyin.com/video/7170354855603621150)|前端,figma,代码,程序员|
-|2|420|[Nodejs爬虫 Jenkins+Puppeteer定时获取数据演示    ](https://douyin.com/video/7170040411379993887)|前端,程序员,jenkins,代码|
-|3|653|[Webgl明日方舟官网代码实现调研     ](https://douyin.com/video/7169612171553361183)|前端,webgl,代码|
+|1|343|[Figma builder.io 插件把任意网站变为设计稿，前端同学想要临摹网站设计稿这不就来了    ](https://douyin.com/video/7170354855603621150)|前端,figma,代码,程序员|
+|2|434|[Nodejs爬虫 Jenkins+Puppeteer定时获取数据演示    ](https://douyin.com/video/7170040411379993887)|前端,程序员,jenkins,代码|
+|3|666|[Webgl明日方舟官网代码实现调研     ](https://douyin.com/video/7169612171553361183)|前端,webgl,代码|
 |4|87|[Windows电脑C盘满了的解决方案 ，亲测有效超实用工具   ](https://douyin.com/video/7169207535067581733)|前端,电脑小技巧|
 |5|57|[Nodejs爬虫进阶自动生成视频点赞排行榜         ](https://douyin.com/video/7168574795687152927)|前端,程序员,代码,编程,vue|
-|6|208|[前端Nodejs 爬虫小白入门，Puppeteer 爬虫爬取数据演示   ](https://douyin.com/video/7168197260734401799)|前端,代码,程序员|
-|7|719|[前端Nodejs 爬虫小白入门，Node爬取数据演示](https://douyin.com/video/7167758991055998222)||
-|8|454|[团队多人协作代码管理 git merge 工作流     ](https://douyin.com/video/7167047701987708173)|程序员,代码,前端|
+|6|210|[前端Nodejs 爬虫小白入门，Puppeteer 爬虫爬取数据演示   ](https://douyin.com/video/7168197260734401799)|前端,代码,程序员|
+|7|723|[前端Nodejs 爬虫小白入门，Node爬取数据演示](https://douyin.com/video/7167758991055998222)||
+|8|457|[团队多人协作代码管理 git merge 工作流     ](https://douyin.com/video/7167047701987708173)|程序员,代码,前端|
 |9|94|[Markdown Mermaid 图表绘制工具     ](https://douyin.com/video/7167019782645108005)|前端,程序员,知识分享,编程,代码|
 |10|107|[扒一下炫酷的背景的代码  ](https://douyin.com/video/7166650705401400584)|程序员,前端|
-|总计|2907|||
+|总计|3178|||
 
 ## 点赞最多的10条视频
 
 |序号|点赞|视频标题|标签|
 |:--:|:--|:--|:--|
-|1|2780|[十分推荐vue element admin开源项目 非常适合刚刚入门前端的同学学习   ](https://douyin.com/video/7161996754227907873)|程序员,代码,前端,编程|
+|1|2793|[十分推荐vue element admin开源项目 非常适合刚刚入门前端的同学学习   ](https://douyin.com/video/7161996754227907873)|程序员,代码,前端,编程|
 |2|1011|[一行代码实现移动端适配 ](https://douyin.com/video/7158472643610561825)|前端|
-|3|719|[前端Nodejs 爬虫小白入门，Node爬取数据演示](https://douyin.com/video/7167758991055998222)||
-|4|659|[Jenkins自动化部署项目代码          ](https://douyin.com/video/7165912754023419172)|jenkins,前端,代码,程序员,编程|
-|5|653|[Webgl明日方舟官网代码实现调研     ](https://douyin.com/video/7169612171553361183)|前端,webgl,代码|
-|6|613|[本地存储要使用localForage  ](https://douyin.com/video/7158668556664573188)|前端|
-|7|454|[团队多人协作代码管理 git merge 工作流     ](https://douyin.com/video/7167047701987708173)|程序员,代码,前端|
+|3|723|[前端Nodejs 爬虫小白入门，Node爬取数据演示](https://douyin.com/video/7167758991055998222)||
+|4|666|[Webgl明日方舟官网代码实现调研     ](https://douyin.com/video/7169612171553361183)|前端,webgl,代码|
+|5|659|[Jenkins自动化部署项目代码          ](https://douyin.com/video/7165912754023419172)|jenkins,前端,代码,程序员,编程|
+|6|612|[本地存储要使用localForage  ](https://douyin.com/video/7158668556664573188)|前端|
+|7|457|[团队多人协作代码管理 git merge 工作流     ](https://douyin.com/video/7167047701987708173)|程序员,代码,前端|
 |8|452|[代码折叠region 适用于任何编程语言    ](https://douyin.com/video/7160892403325439271)|代码,编程,程序员,前端|
-|9|420|[Nodejs爬虫 Jenkins+Puppeteer定时获取数据演示    ](https://douyin.com/video/7170040411379993887)|前端,程序员,jenkins,代码|
+|9|434|[Nodejs爬虫 Jenkins+Puppeteer定时获取数据演示    ](https://douyin.com/video/7170040411379993887)|前端,程序员,jenkins,代码|
 |10|395|[一秒查看开源代码     ](https://douyin.com/video/7161275091140087073)|代码,程序员,编程,前端|
-|总计|8156|||
+|总计|8202|||
 
 ## 统计标签出现的次数
 
