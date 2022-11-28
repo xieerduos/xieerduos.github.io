@@ -9,6 +9,7 @@
     "check": "npx prettier --check .",
     "write": "npx prettier --write .",
     "deploy": "docker-compose down && docker-compose build && docker-compose up -d",
+    "deploy-txy": "docker-compose -f docker-compose.txy.yml down && docker-compose -f docker-compose.txy.yml build && docker-compose -f docker-compose.txy.yml up -d",
     "ranking": "cd ./examples/puppeteer/ && node 5-RankingList.js"
   },
   "repository": {
