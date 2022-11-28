@@ -291,3 +291,7 @@ window.$docsify = {
 ### 增加时序图的支持
 
 https://github.com/mermaid-js/mermaid/blob/develop/README.zh-CN.md
+
+### 优化网页加载速度
+
+把国外 cdn 改为网站本地静态资源
