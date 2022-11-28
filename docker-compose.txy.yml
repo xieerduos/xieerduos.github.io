@@ -6,8 +6,8 @@ services:
       - docs_net
       - share_docs_nginx
     # 公开到宿主主机的端口号
-    ports:
-      - 3300:3000
+    # ports:
+    #   - 3300:3000
     volumes:
       - ./:/docs # 挂载卷 把当前项目根目录的 ./ 映射到 容器/docs
 networks:
