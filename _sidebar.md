@@ -65,3 +65,5 @@
 - [Nodejs 爬虫 Jenkins+Puppeteer 定时获取数据](/frontend/1126-Nodejs-crawler-Jenkins+Puppeter.md)
 
 - [Figma builder.io 插件把任意网站变为设计稿](/frontend/1127-figma-builder.io-to-figma.md)
+
+- [Pixijs-Gsap 实现明日方舟粒子动画](/frontend/1128-Pixijs-gsap-learn.md)
