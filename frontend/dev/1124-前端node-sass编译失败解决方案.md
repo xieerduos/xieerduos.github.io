@@ -23,3 +23,5 @@
 ## Windows 如何安装多个 node 版本
 
 [Windows 如何安装 nvm 管理 nodejs](/frontend/Windows如何安装nvm管理nodejs.md)
+
+Mac/Linux https://github.com/nvm-sh/nvm
