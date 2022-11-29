@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>会议时长</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.6/dayjs.min.js"></script>
+    <script>
+      main();
+      function main() {
+        // 周期性
+        setInterval(() => {
+          showMeetingTime();
+        }, 1000);
+      }
+      function showMeetingTime() {
+        // 开始时间
+        const meetingTime = new Date('2022/11/30 02:00');
+        // 当前时间
+        const currentTime = new Date();
+        if (meetingTime > currentTime) {
+          console.error(
+            '[meetingTime > currentTime]',
+            dayjs(meetingTime).format('YYYY-MM-DD HH:mm:ss'),
+            dayjs(currentTime).format('YYYY-MM-DD HH:mm:ss')
+          );
+          return;
+        }
+        const dateObj = getMeetingDuration(meetingTime, currentTime);
+
+        console.log('[dateObj]', dateObj);
+
+        const appEl = document.getElementById('app');
+        if (!appEl) {
+          console.error('showMeetingTime appEl is ', appEl);
+          return;
+        }
+        // 补全前导 0
+        const hour = String(dateObj.hour).padStart(2, '0');
+        const minute = String(dateObj.minute).padStart(2, '0');
+        const second = String(dateObj.second).padStart(2, '0');
+        appEl.innerHTML = `
+        开始时间：${dayjs(meetingTime).format('YYYY/MM/DD HH:mm:ss')}<br/>
+        现在时间：${dayjs(currentTime).format('YYYY/MM/DD HH:mm:ss')}<br/>
+        会议时长：${hour}:${minute}:${second}
+        `;
+      }
+
+      function getMeetingDuration(meetingTime, currentTime) {
+        // // 开始时间
+        // const meetingTime = new Date('2022/11/30 02:00');
+        // // 当前时间
+        // const currentTime = new Date();
+        // 会议时长
+        const duration = currentTime - meetingTime;
+        // 输出会议时长毫秒数
+        // console.log('[duration]', duration); // 毫秒数
+
+        // 英语单词：
+        // 小时 hour
+        // 分钟 minute
+        // 秒 second
+        // 余数 remainder
+
+        // 算出小时格式化这里显示的数值
+        // 1 hour === 1000 * 60 * 60 毫秒
+        // duration / 1000 * 60 * 60 === hourCount 此时会有余数
+        // (duration - remainder) / 1000 * 60 * 60 是不是就是被整除了
+        // 如果duration 小于 1000 * 60 * 60 ，那么余数是duration本身，那么hourCount将会是0
+        const hourRemainder = duration % (1000 * 60 * 60);
+        // 小时的地方显示的数值
+        const hourCount = (duration - hourRemainder) / (1000 * 60 * 60);
+        // console.log('[hourCount]', hourCount);
+
+        // 余数
+        const minuteRemainder = hourRemainder % (1000 * 60);
+        // 分钟的地方显示的数值
+        const minuteCount = (hourRemainder - minuteRemainder) / (1000 * 60);
+        // 余数
+        const secondRemainder = minuteRemainder % 1000;
+        // 秒的地方显示的数值
+        const secondCount = (minuteRemainder - secondRemainder) / 1000;
+
+        // console.log('[minuteCount]', minuteCount);
+        // console.log('[secondRemainder]', secondRemainder);
+        return {
+          hour: hourCount,
+          minute: minuteCount,
+          second: secondCount
+        };
+      }
+    </script>
+  </body>
+</html>

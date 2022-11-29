@@ -69,3 +69,5 @@
 - [Pixijs-Gsap 实现明日方舟粒子动画](/frontend/1128-Pixijs-gsap-learn.md)
 
 - [JavaScript 模块（module）](/frontend/1129-JavaScript-module.md)
+
+- [JavaScript 显示会议时长代码拆解实现](/frontend/1130-JavaScript-show-meeting-time.md)
