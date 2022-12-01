@@ -4,6 +4,7 @@ services:
     container_name: frontend_lizhongyi_home_docs # 容器名称
     networks:
       - docs_net
+      - share_aly_nginx
     # 公开到宿主主机的端口号
     ports:
       - 3300:3000
@@ -12,3 +13,5 @@ services:
 networks:
   # 默认端口会公开到本地
   docs_net:
+  share_aly_nginx:
+    external: true
