@@ -1,12 +1,61 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron');
+const {app, BrowserWindow, globalShortcut, screen, clipboard} = require('electron');
 const path = require('path');
+const {v4: uuidv4} = require('uuid');
+const md5 = require('md5');
+const config = require('./config.js');
 
+let mainWindow;
 function createWindow() {
+  // 获取鼠标在当前屏幕上的位置
+  const point = screen.getCursorScreenPoint();
+
+  // 如果窗口存在，那么直接展示
+  // https://www.electronjs.org/zh/docs/latest/api/browser-window#winisdestroyed
+  if (mainWindow && !mainWindow.isDestroyed()) {
+    console.log('point', point); // {x: number; y:  number}
+
+    // 设置当前窗口展示的位置
+    mainWindow.setBounds({x: point.x, y: point.y, width: 300, height: 100});
+
+    // 获取剪切板内容 Get clipboard content
+    const text = clipboard.readText();
+    // console.log('text', text);
+
+    if (!text) {
+      console.log('text is empty', text);
+      return;
+    }
+    // \s匹配任何空白字符，包括空格、制表符、换页符等等
+    // fix 签名错误
+    const query = text.replace(/\s/gi, '');
+    const url = 'http://api.fanyi.baidu.com/api/trans/vip/translate';
+    const appid = config.appid; // 需要获取
+    const key = config.key; // 需要获取
+    const salt = uuidv4();
+    const sign = md5(`${appid}${query}${salt}${key}`);
+
+    // 给渲染进程发送 消息
+    mainWindow.webContents.send('show-translate', {
+      query,
+      url,
+      appid,
+      key,
+      salt,
+      sign
+    });
+
+    // 打开窗口
+    mainWindow.show();
+    return;
+  }
+
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+  mainWindow = new BrowserWindow({
+    width: 300, // 窗口大小宽度
+    height: 100, // 窗口大小高度
+    frame: false, // 无边框窗口
+    show: false, // 默认不展示
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
@@ -16,7 +65,7 @@ function createWindow() {
   mainWindow.loadFile('index.html');
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools();
 }
 
 // This method will be called when Electron has finished
@@ -24,6 +73,8 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   createWindow();
+  // 注册一个 'CommandOrControl+Y' 快捷键监听器.
+  globalShortcut.register('CommandOrControl+Space', createWindow);
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
