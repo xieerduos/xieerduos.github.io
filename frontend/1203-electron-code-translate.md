@@ -623,3 +623,19 @@ function createWindow() {
   // mainWindow.webContents.openDevTools();
 }
 ```
+
+## 增加托盘菜单
+
+等待更新...
+
+## 增加自启动（打开电脑就自动启动）
+
+等待更新...
+
+## 自定义快捷键
+
+等待更新...
+
+## 自动更新
+
+等待更新...
