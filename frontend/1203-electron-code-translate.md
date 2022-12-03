@@ -2,6 +2,8 @@
 
 码上翻译项目
 
+码上翻译桌面应用下载（Windows） <a href="/examples/code-translate/code-translate-1.0.0-Setup.exe" target="_blank" download="code-translate-1.0.0-Setup.exe">code-translate-1.0.0-Setup.exe</a><br/>
+
 ## 如何使用码上翻译
 
 码上翻译，选中文本按快捷键即可翻译
