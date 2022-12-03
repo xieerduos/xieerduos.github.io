@@ -538,3 +538,67 @@ function createWindow() {
   // mainWindow.webContents.openDevTools();
 }
 ```
+
+## electron 打包
+
+官方文档 https://www.electronjs.org/zh/docs/latest/tutorial/打包教程
+
+```bash
+yarn add --dev @electron-forge/cli
+```
+
+```bash
+npx electron-forge import
+```
+
+启动项目
+
+```bash
+npm start
+```
+
+打包项目 免安装包
+
+```bash
+PS D:\Desktop\gitee.io\examples\code-translate> npm run package
+
+> electron-quick-start@1.0.0 package
+> electron-forge package
+
+✔ Checking your system
+✔ Preparing to package application
+✔ Running packaging hooks
+  ✔ Running generateAssets hook
+  ✔ Running prePackage hook
+✔ Packaging application
+  ✔ Packaging for x64 on win32 [14s]
+✔ Running postPackage hook
+```
+
+打包项目 exe
+
+```bash
+PS D:\Desktop\gitee.io\examples\code-translate> npm run  make
+
+> electron-quick-start@1.0.0 make
+> electron-forge make
+
+✔ Checking your system
+✔ Loading configuration
+✔ Resolving make targets
+  › Making for the following targets: squirrel
+✔ Running package command
+  ✔ Preparing to package application
+  ✔ Running packaging hooks
+    ✔ Running generateAssets hook
+    ✔ Running prePackage hook
+  ✔ Packaging application
+    ✔ Packaging for x64 on win32 [15s]
+  ✔ Running postPackage hook
+✔ Running preMake hook
+✔ Making distributables
+  ✔ Making a squirrel distributable for win32/x64 [1m18s]
+✔ Running postMake hook
+  › Artifacts available at: D:\Desktop\gitee.io\examples\code-translate\out\make
+PS D:\Desktop\gitee.io\examples\code-translate>
+```
