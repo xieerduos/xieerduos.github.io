@@ -1,5 +1,5 @@
 {
-  "name": "electron-quick-start",
+  "name": "code-translate",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
@@ -8,13 +8,9 @@
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "码上翻译"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
