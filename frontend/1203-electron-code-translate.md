@@ -626,11 +626,112 @@ function createWindow() {
 
 ## 增加托盘菜单
 
-等待更新...
+https://electronjs.org/docs/api/tray
+
+### 生成图标
+
+electron-icon-builder https://github.com/safu9/electron-icon-builder
+
+```bash
+npm install  electron-icon-builder --save-dev
+```
+
+```bash
+./node_modules/.bin/electron-icon-builder --input=./logo.png --output=./
+```
+
+```js
+const {app, Menu, Tray} = require('electron');
+
+let tray = null;
+app.whenReady().then(() => {
+  tray = new Tray('/path/to/my/icon');
+  const contextMenu = Menu.buildFromTemplate([
+    {label: 'Item1', type: 'radio'},
+    {label: 'Item2', type: 'radio'},
+    {label: 'Item3', type: 'radio', checked: true},
+    {label: 'Item4', type: 'radio'}
+  ]);
+  tray.setToolTip('This is my application.');
+  tray.setContextMenu(contextMenu);
+});
+```
+
+### 增加系统托盘
+
+移动`icons`到`src/icons/`
+
+`src/tray/index.js`
+
+```js
+const {app, Menu, Tray} = require('electron');
+const path = require('path');
+let tray = null;
+
+// 有退出按钮
+module.exports = function useTray(mainWindow) {
+  tray = new Tray(path.join(__dirname, '../icons/win/icon.ico'));
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      label: '重新启动',
+      click: () => {
+        // 打完包后生效
+        app.relaunch();
+      }
+    },
+    {
+      label: '退出',
+      click: () => {
+        // 退出的时候
+        // 如果还有其他行为
+        // 可以在这个方法里面执行
+      },
+      role: 'quit'
+    }
+  ]);
+  tray.setToolTip('码上翻译');
+  tray.setContextMenu(contextMenu);
+
+  tray.on('click', () => {
+    mainWindow.show(); // 打开窗口
+  });
+};
+```
+
+main.js
+
+```js
+const useTray = require('./src/tray/index.js');
+
+app.whenReady().then(() => {
+  createWindow();
+
+  // 系统托盘菜单
+  useTray(mainWindow);
+});
+```
+
+## bug 可以多开
+
+单例运行
+
+```js
+const gotTheLock = app.requestSingleInstanceLock();
+
+// 单例运行
+if (!gotTheLock) {
+  // 当第二个实例启动时直接退出
+  app.quit();
+} else {
+  // coding
+}
+```
 
 ## 增加自启动（打开电脑就自动启动）
 
-等待更新...
+https://www.electronjs.org/zh/docs/latest/api/app#appgetloginitemsettingsoptions-macos-windows
+
+app.getLoginItemSettings();
 
 ## 自定义快捷键
 
