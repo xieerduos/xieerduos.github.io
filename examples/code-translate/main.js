@@ -13,7 +13,7 @@ function createWindow() {
   // 如果窗口存在，那么直接展示
   // https://www.electronjs.org/zh/docs/latest/api/browser-window#winisdestroyed
   if (mainWindow && !mainWindow.isDestroyed()) {
-    console.log('point', point); // {x: number; y:  number}
+    // console.log('point', point); // {x: number; y:  number}
 
     // 设置当前窗口展示的位置
     mainWindow.setBounds({x: point.x, y: point.y, width: 300, height: 100});
@@ -23,7 +23,7 @@ function createWindow() {
     // console.log('text', text);
 
     if (!text) {
-      console.log('text is empty', text);
+      // console.log('text is empty', text);
       return;
     }
     // \s匹配任何空白字符，包括空格、制表符、换页符等等
@@ -63,6 +63,10 @@ function createWindow() {
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html');
+
+  mainWindow.webContents.on('blur', () => {
+    mainWindow.hide();
+  });
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools();

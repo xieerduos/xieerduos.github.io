@@ -602,3 +602,24 @@ PS D:\Desktop\gitee.io\examples\code-translate> npm run  make
   › Artifacts available at: D:\Desktop\gitee.io\examples\code-translate\out\make
 PS D:\Desktop\gitee.io\examples\code-translate>
 ```
+
+## bug 修复
+
+### 失去焦点隐藏翻译窗口
+
+main.js
+
+```js
+let mainWindow;
+function createWindow() {
+  // and load the index.html of the app.
+  mainWindow.loadFile('index.html');
+
+  mainWindow.webContents.on('blur', () => {
+    mainWindow.hide();
+  });
+
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools();
+}
+```
