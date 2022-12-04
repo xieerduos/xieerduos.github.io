@@ -2,6 +2,10 @@
 
 富文本前后端从 0 到 100 拆解实现
 
+最终效果图
+
+<img src="/images/frontend/tinymce.png" style="max-height: 600px;max-width:300px;" />
+
 ## 前端
 
 ### Create react app 搭建项目
