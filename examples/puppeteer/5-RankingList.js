@@ -25,7 +25,7 @@ async function main() {
     await writeRankingMdfile(filePath, [], {title: `## 更新时间\n\n`, onlyTitle: true, flag: 'a+'});
     await writeRankingMdfile(filePath, [], {
       title: `最近更新时间：${dayjs(new Date()).format('YYYY-MM-DD HH:mm')}<br/>下一次更新时间：${dayjs(new Date())
-        .add(10, 'minute')
+        .add(6, 'hour')
         .format('YYYY-MM-DD HH:mm')}\n\n`,
       onlyTitle: true,
       flag: 'a+'
