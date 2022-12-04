@@ -9,4 +9,65 @@ body {
 .App {
   width: 100vw;
   height: 100vh;
+  overflow: auto;
+}
+
+/* https://c.runoob.com/codedemo/5371/ */
+.example {
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.example .title {
+  color: #fff;
+}
+/* 超小设备 (手机, 600px 以下屏幕设备) */
+@media only screen and (max-width: 600px) {
+  body {
+    background: red;
+  }
+  .example {
+    padding: 10px;
+    width: 100vw;
+  }
+}
+
+/* 小设备 (平板电脑和大型手机，600 像素及以上) */
+@media only screen and (min-width: 600px) {
+  body {
+    background: green;
+  }
+  .example {
+    width: 90vw;
+  }
+}
+
+/* 中型设备（平板电脑，768 像素及以上） */
+@media only screen and (min-width: 768px) {
+  body {
+    background: blue;
+  }
+  .example {
+    width: 80vw;
+  }
+}
+
+/* 大型设备（笔记本电脑/台式机，992 像素及以上） */
+@media only screen and (min-width: 992px) {
+  body {
+    background: orange;
+  }
+  .example {
+    width: 75vw;
+  }
+}
+
+/* 超大型设备（大型笔记本电脑和台式机，1200 像素及以上） */
+@media only screen and (min-width: 1200px) {
+  body {
+    background: pink;
+  }
+  .example {
+    width: 70vw;
+  }
 }

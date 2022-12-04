@@ -1,0 +1,27 @@
+# .prettierignore 文件配置
+/dist
+/.vscode
+node_modules
+package.json
+package-lock.json
+
+/.nginx
+
+docker-compose.yml
+
+**/*.svg
+.dockerignore
+.DS_Store
+.eslintignore
+*.png
+.editorconfig
+Dockerfile*
+.gitignore
+.prettierignore
+*.lock
+yarn-error.log
+
+
+/douyin/RankingList.md
+
+tencent6470915027779955521.txt
