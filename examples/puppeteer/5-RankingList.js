@@ -13,7 +13,7 @@ async function main() {
     log('nodeVersion', nodeVersion);
     // 获取视频列表数据
     log('获取视频列表数据');
-    const videoList = await getVideoList();
+    let videoList = await getVideoList();
 
     const filePath = path.join('../../douyin/RankingList.md');
 
@@ -89,14 +89,14 @@ function writeRankingMdfile(
       total += item.like;
       acc += `|${index + 1}|${item.like}|[${item.title.replaceAll('\n', '-')}](https://douyin.com${item.href})|${
         Array.isArray(item.tags) && item.tags.join(',')
-      }|\n`;
+      }|${item.publishTime}|\n`;
       return acc;
     }, '\n');
 
     const tableFooter = `|总计|${total}|||\n\n`;
 
     // 表头
-    const tableHeader = `|序号|点赞|视频标题|标签|\n|:--:|:--|:--|:--|`;
+    const tableHeader = `|序号|点赞|视频标题|标签|发布时间|\n|:--:|:--|:--|:--|:--|`;
 
     // 排行榜表格
     const tableContent = tableHeader + tableBody + tableFooter;
@@ -180,10 +180,23 @@ function drawPieChart(filePath, tagObj, {title = '', flag = 'a+'} = {}) {
   return new Promise((resolve, reject) => {
     const pieChartBefore = `\`\`\`Mermaid\npie title ${title}\n`;
 
-    let pieChartData = '';
-
+    // 出现1，2次的为其他类目
+    const dataSource = {};
     Object.keys(tagObj).forEach((key) => {
       const number = tagObj[key];
+      if (number > 2) {
+        dataSource[key] = number;
+      } else if (dataSource['其他']) {
+        dataSource['其他'] += 1;
+      } else {
+        dataSource['其他'] = 1;
+      }
+    });
+
+    let pieChartData = '';
+
+    Object.keys(dataSource).forEach((key) => {
+      const number = dataSource[key];
 
       pieChartData += `    "${key}" : ${number}\n`;
     });
@@ -205,11 +218,11 @@ function drawPieChart(filePath, tagObj, {title = '', flag = 'a+'} = {}) {
 async function getVideoList() {
   log('puppeteer 开始');
   const browser = await puppeteer.launch({
-    headless: true, // 是否为无头浏览器，默认为true 这里为了演示 设置false
-    devtools: false, // 是否打开开发者工具
-    args: ['--no-sandbox'],
-    // chrome的默认安装路径
-    executablePath: '/opt/google/chrome/chrome'
+    headless: false, // 是否为无头浏览器，默认为true 这里为了演示 设置false
+    devtools: false // 是否打开开发者工具
+    // args: ['--no-sandbox'],
+    // // chrome的默认安装路径
+    // executablePath: '/opt/google/chrome/chrome'
     // slowMo: 0 // slow down by 250ms
   });
 
@@ -224,7 +237,7 @@ async function getVideoList() {
   // 设置页面大小
   await page.setViewport({
     width: 960,
-    height: 1175,
+    height: 3000,
     deviceScaleFactor: 2
   });
   // #region 关闭登录按钮
@@ -259,7 +272,7 @@ async function getVideoList() {
     await new Promise((resolve, reject) => setTimeout(resolve, 3000));
   };
   await loadMoreHandler();
-  // await loadMoreHandler();
+  await loadMoreHandler();
 
   // #endregion 滚动到底部加载跟多数据
 
@@ -269,7 +282,7 @@ async function getVideoList() {
   await page.waitForSelector(resultsSelector);
 
   // 执行js代码 获取
-  const result = await page.evaluate((resultsSelector) => {
+  let videoList = await page.evaluate((resultsSelector) => {
     return [...document.querySelectorAll(resultsSelector)].map((videoItemEl) => {
       // js 获取 dom 节点
       const videoLikeCountEl = videoItemEl.querySelector('.author-card-user-video-like > span');
@@ -285,6 +298,7 @@ async function getVideoList() {
       //   title:string; // 标题
       //   href:string; // 视频链接
       //   tags: string[] // 视频标签
+      //   key: string; // 视频id，唯一id
       // }
 
       if (videoLikeCountEl) {
@@ -311,6 +325,8 @@ async function getVideoList() {
 
       if (videoHrefLinkEl) {
         newItem.href = videoHrefLinkEl.getAttribute('href');
+        const key = newItem.href.match(/\w{1,}$/gi);
+        newItem.key = Array.isArray(key) && key.length > 0 ? key[0] : '';
       }
       return newItem;
     });
@@ -318,8 +334,70 @@ async function getVideoList() {
 
   // #endregion 通过插入js获取页面上的数据
 
+  log('获取视频发布时间 start');
+  // 获取视频发布时间
+  videoList = await getVideoPublishingTime(browser, videoList);
+
+  log('关闭浏览器');
   await browser.close();
-  return result;
+  return videoList;
+}
+
+// 获取视频发布时间
+async function getVideoPublishingTime(browser, videoList) {
+  // 检查video-publish.json文件是否存在于当前目录中。
+  // 获取本地缓存的获取发布日期记录
+  // 如果已经存在不再获取
+  const publishJsonPath = path.join(__dirname, './video-publish.json');
+  const videoPublishJson = await new Promise((resolve, reject) => {
+    fs.access(publishJsonPath, fs.constants.F_OK, (err) => {
+      let publishData;
+      if (!err) {
+        log('video-publish.json 存在');
+        publishData = fs.readFileSync(publishJsonPath, {encoding: 'utf8'});
+      } else {
+        log('video-publish.json 不存在', err);
+        publishData = JSON.stringify({});
+        fs.writeFileSync(publishJsonPath, publishData, {encoding: 'utf8', flag: 'w+'});
+      }
+      resolve(JSON.parse(publishData));
+    });
+  });
+
+  const newVideoItems = [];
+
+  for (let videoItem of videoList) {
+    if (videoPublishJson[videoItem.key]) {
+      newVideoItems.push({...videoItem, publishTime: videoPublishJson[videoItem.key]});
+      continue;
+    }
+    const page = await browser.newPage();
+    await page.setViewport({width: 1280, height: 720});
+    log('videoItem.href', videoItem.href);
+    await page.goto(`https://www.douyin.com${videoItem.href}`);
+
+    const resultsSelector = '.aQoncqRg';
+    await page.waitForSelector(resultsSelector);
+
+    const publishTime = await page.evaluate((resultsSelector) => {
+      const publishElement = document.querySelector(resultsSelector);
+      if (publishElement) {
+        return publishElement.textContent.split('：')[1].trim();
+      } else {
+        log('getVideoPublishingTime error: no publish time', videoItem.href);
+        return '';
+      }
+    }, resultsSelector);
+
+    videoPublishJson[videoItem.key] = publishTime;
+    newVideoItems.push({...videoItem, publishTime});
+    await page.close();
+  }
+
+  // 重新写回去
+  fs.writeFileSync(publishJsonPath, JSON.stringify(videoPublishJson), {encoding: 'utf8', flag: 'w+'});
+
+  return newVideoItems;
 }
 
 // #region 把控制台信息写入到日志文件
