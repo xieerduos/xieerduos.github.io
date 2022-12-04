@@ -2,6 +2,8 @@
 
 - [抖音@程序员李钟意-首页](/)
 
+- [直播弹幕问题回答](/frontend/1204-live-problem.md)
+
 - [抖音视频点赞排行榜](/douyin/RankingList.md)
 
 - [抖音视频更新记录](/douyin/README.md)
@@ -75,3 +77,5 @@
 - [网站置灰 css 样式](/frontend/1202-website-graying-css-style.md)
 
 - [Electron 码上翻译从 0 到 100 拆解实现](/frontend/1203-electron-code-translate.md)
+
+- [富文本 tinymce 技术调研（React + Node express）](/frontend/1204-tinymce-react-express.md)
