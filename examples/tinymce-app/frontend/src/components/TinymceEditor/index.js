@@ -11,9 +11,9 @@ export default function TinymceEditor() {
   return (
     <>
       <Editor
-        apiKey="your-api-key"
         onInit={(evt, editor) => (editorRef.current = editor)}
         initialValue="<p>This is the initial content of the editor.</p>"
+        tinymceScriptSrc="/tinymce/tinymce.min.js"
         init={{
           height: 500,
           menubar: false,
