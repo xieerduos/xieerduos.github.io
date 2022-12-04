@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <div className="example">
-        <h1 className="title">富文本 tinymce 技术调研（React + Node express）</h1>
+        <h1 className="title">富文本 Tinymce 技术调研（React + Node express）</h1>
         <TinymceEditor></TinymceEditor>
       </div>
     </div>

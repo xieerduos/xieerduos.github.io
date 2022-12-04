@@ -1,4 +1,4 @@
-# 富文本 tinymce 技术调研（React + Node express）
+# 富文本 Tinymce 技术调研（React + Node express）
 
 富文本前后端从 0 到 100 拆解实现
 
@@ -491,6 +491,14 @@ body {
 }
 ```
 
+### 删掉右下角 logo
+
+全文检索下面关键字
+
+```
+tox-statusbar__branding
+```
+
 ## 后端
 
 ### node express
@@ -604,18 +612,4 @@ app.post('/upload', function (req, res) {
 app.listen(PORT, function () {
   console.log('Express server listening on port ', PORT); // eslint-disable-line
 });
-```
-
-## 删掉付费右下角 logo
-
-全文检索下面关键字
-
-```
-tox-statusbar__branding
-```
-
-图片文件上传
-
-```bash
-https://www.tiny.cloud/docs/configure/file-image-upload/
 ```
