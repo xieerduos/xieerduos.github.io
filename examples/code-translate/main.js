@@ -91,9 +91,12 @@ if (!gotTheLock) {
     // 系统托盘菜单
     useTray(mainWindow);
 
-    // 写死 开机自启动
-    // 打包后生效
-    app.getLoginItemSettings();
+    // https://www.electronjs.org/zh/docs/latest/api/app#appsetappusermodelidid-windows
+    app.setAppUserModelId('CodeTranslate');
+    // 开机自启动
+    app.setLoginItemSettings({
+      openAtLogin: true // 登录时打开应用程序， false 将应用从登录启动项中删除。 默认值为 false.
+    });
 
     // 注册一个 'CommandOrControl+Y' 快捷键监听器.
     globalShortcut.register('CommandOrControl+Space', createWindow);

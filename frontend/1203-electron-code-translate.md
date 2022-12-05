@@ -731,9 +731,16 @@ if (!gotTheLock) {
 
 ## 增加自启动（打开电脑就自动启动）
 
-https://www.electronjs.org/zh/docs/latest/api/app#appgetloginitemsettingsoptions-macos-windows
+main.js
 
-app.getLoginItemSettings();
+```js
+// https://www.electronjs.org/zh/docs/latest/api/app#appsetappusermodelidid-windows
+app.setAppUserModelId('CodeTranslate');
+// 开机自启动
+app.setLoginItemSettings({
+  openAtLogin: true // 登录时打开应用程序， false 将应用从登录启动项中删除。 默认值为 false.
+});
+```
 
 ## 自定义快捷键
 
