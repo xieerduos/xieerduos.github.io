@@ -9,6 +9,7 @@ package-lock.json
 
 docker-compose.yml
 
+**/*.exe
 **/*.svg
 .dockerignore
 .DS_Store
