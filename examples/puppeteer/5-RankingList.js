@@ -25,7 +25,7 @@ async function main() {
     await writeRankingMdfile(filePath, [], {title: `## 更新时间\n\n`, onlyTitle: true, flag: 'a+'});
     await writeRankingMdfile(filePath, [], {
       title: `最近更新时间：${dayjs(new Date()).format('YYYY-MM-DD HH:mm')}<br/>下一次更新时间：${dayjs(new Date())
-        .add(6, 'hour')
+        .add(3, 'hour')
         .format('YYYY-MM-DD HH:mm')}\n\n`,
       onlyTitle: true,
       flag: 'a+'
@@ -336,7 +336,7 @@ async function getVideoList() {
 
   log('获取视频发布时间 start');
   // 获取视频发布时间
-  videoList = await getVideoPublishingTime(browser, videoList);
+  // videoList = await getVideoPublishingTime(browser, videoList);
 
   log('关闭浏览器');
   await browser.close();
@@ -375,6 +375,11 @@ async function getVideoPublishingTime(browser, videoList) {
     await page.setViewport({width: 1280, height: 720});
     log('videoItem.href', videoItem.href);
     await page.goto(`https://www.douyin.com${videoItem.href}`);
+
+    // log('等待5秒', videoItem.href);
+    // await new Promise((resolve, reject) => setTimeout(resolve, 5 * 1000));
+    // log('截图', videoItem.href);
+    // await page.screenshot({path: videoItem.key + '.png'});
 
     const resultsSelector = '.aQoncqRg';
     await page.waitForSelector(resultsSelector);
