@@ -89,7 +89,7 @@ function writeRankingMdfile(
       total += item.like;
       acc += `|${index + 1}|${item.like}|[${item.title.replaceAll('\n', '-')}](https://douyin.com${item.href})|${
         Array.isArray(item.tags) && item.tags.join(',')
-      }|${item.publishTime}|\n`;
+      }|${item.publishTime || ''}|\n`;
       return acc;
     }, '\n');
 
@@ -336,7 +336,7 @@ async function getVideoList() {
 
   log('获取视频发布时间 start');
   // 获取视频发布时间
-  // videoList = await getVideoPublishingTime(browser, videoList);
+  videoList = await getVideoPublishingTime(browser, videoList);
 
   log('关闭浏览器');
   await browser.close();
@@ -371,36 +371,37 @@ async function getVideoPublishingTime(browser, videoList) {
       newVideoItems.push({...videoItem, publishTime: videoPublishJson[videoItem.key]});
       continue;
     }
-    const page = await browser.newPage();
-    await page.setViewport({width: 1280, height: 720});
-    log('videoItem.href', videoItem.href);
-    await page.goto(`https://www.douyin.com${videoItem.href}`);
 
-    // log('等待5秒', videoItem.href);
-    // await new Promise((resolve, reject) => setTimeout(resolve, 5 * 1000));
-    // log('截图', videoItem.href);
-    // await page.screenshot({path: videoItem.key + '.png'});
+    // const page = await browser.newPage();
+    // await page.setViewport({width: 1280, height: 720});
+    // log('videoItem.href', videoItem.href);
+    // await page.goto(`https://www.douyin.com${videoItem.href}`);
 
-    const resultsSelector = '.aQoncqRg';
-    await page.waitForSelector(resultsSelector);
+    // // log('等待5秒', videoItem.href);
+    // // await new Promise((resolve, reject) => setTimeout(resolve, 5 * 1000));
+    // // log('截图', videoItem.href);
+    // // await page.screenshot({path: videoItem.key + '.png'});
 
-    const publishTime = await page.evaluate((resultsSelector) => {
-      const publishElement = document.querySelector(resultsSelector);
-      if (publishElement) {
-        return publishElement.textContent.split('：')[1].trim();
-      } else {
-        log('getVideoPublishingTime error: no publish time', videoItem.href);
-        return '';
-      }
-    }, resultsSelector);
+    // const resultsSelector = '.aQoncqRg';
+    // await page.waitForSelector(resultsSelector);
 
-    videoPublishJson[videoItem.key] = publishTime;
-    newVideoItems.push({...videoItem, publishTime});
-    await page.close();
+    // const publishTime = await page.evaluate((resultsSelector) => {
+    //   const publishElement = document.querySelector(resultsSelector);
+    //   if (publishElement) {
+    //     return publishElement.textContent.split('：')[1].trim();
+    //   } else {
+    //     log('getVideoPublishingTime error: no publish time', videoItem.href);
+    //     return '';
+    //   }
+    // }, resultsSelector);
+
+    // videoPublishJson[videoItem.key] = publishTime;
+    // newVideoItems.push({...videoItem, publishTime});
+    // await page.close();
   }
 
   // 重新写回去
-  fs.writeFileSync(publishJsonPath, JSON.stringify(videoPublishJson), {encoding: 'utf8', flag: 'w+'});
+  // fs.writeFileSync(publishJsonPath, JSON.stringify(videoPublishJson), {encoding: 'utf8', flag: 'w+'});
 
   return newVideoItems;
 }
