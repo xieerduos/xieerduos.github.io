@@ -742,6 +742,95 @@ app.setLoginItemSettings({
 });
 ```
 
+## 自定义安装图标
+
+forge.config.js
+
+```js
+// https://www.electronforge.io/guides/create-and-add-icons
+const path = require('path');
+
+const platform = process.platform !== 'darwin' ? 'win' : 'mac';
+
+module.exports = {
+  packagerConfig: {
+    icon: path.join(__dirname, `./src/icons/${platform}/icon`)
+  },
+  rebuildConfig: {},
+  makers: [
+    {
+      name: '@electron-forge/maker-squirrel',
+      config: {
+        iconUrl: path.join(__dirname, `./src/icons/${platform}/icon.ico`),
+        setupIcon: path.join(__dirname, `./src/icons/${platform}/icon.ico`)
+      }
+    },
+    {
+      name: '@electron-forge/maker-zip',
+      platforms: ['darwin']
+    },
+    {
+      name: '@electron-forge/maker-deb',
+      config: {
+        options: {
+          icon: path.join(__dirname, './src/icons/png/1024x1024.png')
+        }
+      }
+    },
+    {
+      name: '@electron-forge/maker-rpm',
+      config: {}
+    }
+  ]
+};
+```
+
+## 任务栏显示的图标
+
+main.js
+
+```js
+// Create the browser window.
+mainWindow = new BrowserWindow({
+  icon: path.join(__dirname, './src/icons/png/1024x1024.png')
+});
+```
+
+## Windows 安装图标修改了没有变化
+
+原因是 Windows 图标是有缓存的
+
+### 清除 Windows 图标缓存
+
+创建 icon.bat 内容如下，然后双击一下，清除 Windows 图标缓存
+
+```bat
+@REM % 进入图标缓存目录%
+cd /c %userprofile%\AppData\Local\Microsoft\Windows\Explorer
+
+@REM %关闭Windows资源管理器explorer%
+taskkill /f /im explorer.exe
+
+@REM %延时3s%
+ping -n 3 127.0.0.1>nul
+
+@REM %删除图标缓存数据库%
+@REM attrib -h iconcache_.db
+del iconcache_.db /a
+
+@REM %延时3s%
+ping -n 3 127.0.0.1>nul
+
+@REM %重启Windows资源管理器explorer%
+start explorer
+```
+
+### 参考链接
+
+windows 清理图标缓存并重新加载 https://blog.csdn.net/nodeman/article/details/94555196
+
+electron-forge 打包如何自定义应用图标和安装动画 https://segmentfault.com/q/1010000021004246
+
 ## 自定义快捷键
 
 等待更新...

@@ -66,6 +66,7 @@ if (!gotTheLock || require('electron-squirrel-startup')) {
       height: 100, // 窗口大小高度
       frame: false, // 无边框窗口
       show: false, // 默认不展示
+      icon: path.join(__dirname, './src/icons/png/1024x1024.png'),
       webPreferences: {
         preload: path.join(__dirname, 'preload.js')
       }
