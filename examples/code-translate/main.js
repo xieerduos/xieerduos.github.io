@@ -10,8 +10,8 @@ const useTray = require('./src/tray/index.js');
 // Single Instance
 const gotTheLock = app.requestSingleInstanceLock();
 
-// 单例运行
-if (!gotTheLock) {
+// 单例运行 或者 https://www.electronforge.io/import-existing-project#adding-squirrel.windows-boilerplate
+if (!gotTheLock || require('electron-squirrel-startup')) {
   // 当第二个实例启动时直接退出
   app.quit();
 } else {
