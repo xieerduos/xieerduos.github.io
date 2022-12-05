@@ -1,7 +1,8 @@
 {
   "name": "code-translate",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "productionName":"CodeTranslate",
+  "version": "1.0.1",
+  "description": "码上翻译，选中文本按快捷键即可翻译，快捷键（Ctrl+C Ctrl+Space）",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -12,7 +13,7 @@
   "keywords": [
     "码上翻译"
   ],
-  "author": "GitHub",
+  "author": "shaohai.li",
   "license": "CC0-1.0",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.4",

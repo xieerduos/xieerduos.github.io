@@ -2,7 +2,12 @@
 
 码上翻译项目
 
-码上翻译桌面应用下载（Windows） <a href="/examples/code-translate/code-translate-1.0.0-Setup.exe" target="_blank" download="code-translate-1.0.0-Setup.exe">code-translate-1.0.0-Setup.exe</a><br/>
+## 版本管理
+
+| 版本   | 发布时间   | 更新内容                                       | 码上翻译桌面应用下载（Windows）                                                                                                                                |
+| :----- | :--------- | :--------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| v1.0.1 | 2022/12/05 | 1.增加安装包图标 2.增加托盘菜单 3.增加自动启动 | <a href="/examples/code-translate/code-translate-1.0.1-Setup.exe" target="_blank" download="code-translate-1.0.1-Setup.exe">code-translate-1.0.1-Setup.exe</a> |
+| v1.0.0 | 2022/12/03 | 1.实现选中文本按快捷键翻译                     |                                                                                                                                                                |
 
 ## 如何使用码上翻译
 
@@ -830,6 +835,8 @@ start explorer
 windows 清理图标缓存并重新加载 https://blog.csdn.net/nodeman/article/details/94555196
 
 electron-forge 打包如何自定义应用图标和安装动画 https://segmentfault.com/q/1010000021004246
+
+## 打出来的包很大
 
 ## 自定义快捷键
 
