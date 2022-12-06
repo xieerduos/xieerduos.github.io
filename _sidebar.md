@@ -79,3 +79,5 @@
 - [Electron 码上翻译从 0 到 100 拆解实现](/frontend/1203-electron-code-translate.md)
 
 - [富文本 Tinymce 技术调研（React + Node express）](/frontend/1204-tinymce-react-express.md)
+
+- [JavaScript 网站加载速度优化-减少白屏时间](/frontend/1206-JavaScript-async-defer.md)
