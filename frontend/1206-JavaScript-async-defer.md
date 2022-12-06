@@ -2,6 +2,8 @@
 
 亲测有用，值得学习了解
 
+MDN script 标签 https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/script
+
 ## 方案
 
 把首屏用不到的 js 库 script 标签 加上 async
