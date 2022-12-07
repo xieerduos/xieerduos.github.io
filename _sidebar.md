@@ -4,7 +4,7 @@
 
 - [直播弹幕问题回答](/frontend/1204-live-problem.md)
 
-- [抖音视频点赞排行榜](/douyin/RankingList.md)
+- [抖音视频数分析](/douyin/RankingList.md)
 
 - [抖音视频更新记录](/douyin/README.md)
 

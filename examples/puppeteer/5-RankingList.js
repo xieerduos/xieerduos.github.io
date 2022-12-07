@@ -4,23 +4,35 @@ const puppeteer = require('puppeteer');
 const dayjs = require('dayjs');
 const child_process = require('child_process');
 
+// 判断当前是否客户端运行
+const isLocalRun = process.argv[2] === '-c'; // -client
+
 main();
 
 async function main() {
   try {
     log('开始');
+    log('isLocalRun', isLocalRun);
     const nodeVersion = await getNodeVersion();
     log('nodeVersion', nodeVersion);
     // 获取视频列表数据
     log('获取视频列表数据');
-    let videoList = await getVideoList();
+    let {videoList, statistic} = await getVideoList();
 
     const filePath = path.join('../../douyin/RankingList.md');
 
     log('视频列表数据写入排行榜', '共', videoList.length, '条');
 
     // 视频列表数据写入排行榜
-    await writeRankingMdfile(filePath, [], {title: `# 抖音视频点赞排行榜\n\n`, onlyTitle: true, flag: 'w+'});
+    await writeRankingMdfile(filePath, [], {title: `# 抖音视频数分析\n\n`, onlyTitle: true, flag: 'w+'});
+
+    await writeRankingMdfile(filePath, [], {
+      title: `## ${statistic.userName}\n\n<p>${statistic.douyin}</p><p>${statistic.data
+        .map((item) => `${item.label}: ${item.count}`)
+        .join('&nbsp;|&nbsp;')}</p>\n\n`,
+      onlyTitle: true,
+      flag: 'a+'
+    });
 
     await writeRankingMdfile(filePath, [], {title: `## 更新时间\n\n`, onlyTitle: true, flag: 'a+'});
     await writeRankingMdfile(filePath, [], {
@@ -217,14 +229,18 @@ function drawPieChart(filePath, tagObj, {title = '', flag = 'a+'} = {}) {
 // 爬虫获取视频列表数据
 async function getVideoList() {
   log('puppeteer 开始');
-  const browser = await puppeteer.launch({
-    headless: true, // 是否为无头浏览器，默认为true 这里为了演示 设置false
-    devtools: false, // 是否打开开发者工具
-    args: ['--no-sandbox'],
-    // chrome的默认安装路径
-    executablePath: '/opt/google/chrome/chrome'
-    // slowMo: 0 // slow down by 250ms
-  });
+  const browser = await puppeteer.launch(
+    isLocalRun
+      ? {headless: false}
+      : {
+          headless: true, // 是否为无头浏览器，默认为true 这里为了演示 设置false
+          devtools: false, // 是否打开开发者工具
+          args: ['--no-sandbox'],
+          // chrome的默认安装路径
+          executablePath: '/opt/google/chrome/chrome'
+          // slowMo: 0 // slow down by 250ms
+        }
+  );
 
   log('1.新打开一个页签');
   // 新打开一个页签
@@ -278,6 +294,33 @@ async function getVideoList() {
 
   // #region 通过插入js获取页面上的数据
   log('5.通过插入js获取页面上的数据..');
+
+  const statisticsSelector = '.TxoC9G6_';
+  await page.waitForSelector(statisticsSelector);
+  const dataStatistic = await page.evaluate((statisticsSelector) => {
+    const userName = (document.querySelector('.xpjM3LEg') || {}).innerText || '';
+    const douyin = (document.querySelector('.aH7rLkZZ') || {}).innerText || '';
+
+    const arr = [
+      {count: 0, key: 'follow', label: '关注'},
+      {count: 0, key: 'fans', label: '粉丝'},
+      {count: 0, key: 'like', label: '获赞'}
+    ];
+    const data = Array.from(document.querySelectorAll(statisticsSelector)).map((ele, index) => {
+      const newItem = arr[index];
+      if (newItem) {
+        newItem.count = ele.innerText;
+      }
+      console.log('newItem', newItem);
+      return newItem;
+    });
+    return {
+      userName,
+      douyin,
+      data
+    };
+  }, statisticsSelector);
+
   const resultsSelector = '.Eie04v01';
   await page.waitForSelector(resultsSelector);
 
@@ -340,7 +383,7 @@ async function getVideoList() {
 
   log('关闭浏览器');
   await browser.close();
-  return videoList;
+  return {statistic: dataStatistic, videoList};
 }
 
 // 获取视频发布时间
@@ -371,37 +414,42 @@ async function getVideoPublishingTime(browser, videoList) {
       newVideoItems.push({...videoItem, publishTime: videoPublishJson[videoItem.key]});
       continue;
     }
+    if (isLocalRun) {
+      newVideoItems.push({...videoItem, publishTime: ''});
+    } else {
+      const page = await browser.newPage();
+      await page.setViewport({width: 1280, height: 720});
+      log('videoItem.href', videoItem.href);
+      await page.goto(`https://www.douyin.com${videoItem.href}`);
 
-    // const page = await browser.newPage();
-    // await page.setViewport({width: 1280, height: 720});
-    // log('videoItem.href', videoItem.href);
-    // await page.goto(`https://www.douyin.com${videoItem.href}`);
+      // log('等待5秒', videoItem.href);
+      // await new Promise((resolve, reject) => setTimeout(resolve, 5 * 1000));
+      // log('截图', videoItem.href);
+      // await page.screenshot({path: videoItem.key + '.png'});
 
-    // // log('等待5秒', videoItem.href);
-    // // await new Promise((resolve, reject) => setTimeout(resolve, 5 * 1000));
-    // // log('截图', videoItem.href);
-    // // await page.screenshot({path: videoItem.key + '.png'});
+      const resultsSelector = '.aQoncqRg';
+      await page.waitForSelector(resultsSelector);
 
-    // const resultsSelector = '.aQoncqRg';
-    // await page.waitForSelector(resultsSelector);
+      const publishTime = await page.evaluate((resultsSelector) => {
+        const publishElement = document.querySelector(resultsSelector);
+        if (publishElement) {
+          return publishElement.textContent.split('：')[1].trim();
+        } else {
+          log('getVideoPublishingTime error: no publish time', videoItem.href);
+          return '';
+        }
+      }, resultsSelector);
 
-    // const publishTime = await page.evaluate((resultsSelector) => {
-    //   const publishElement = document.querySelector(resultsSelector);
-    //   if (publishElement) {
-    //     return publishElement.textContent.split('：')[1].trim();
-    //   } else {
-    //     log('getVideoPublishingTime error: no publish time', videoItem.href);
-    //     return '';
-    //   }
-    // }, resultsSelector);
-
-    // videoPublishJson[videoItem.key] = publishTime;
-    // newVideoItems.push({...videoItem, publishTime});
-    // await page.close();
+      videoPublishJson[videoItem.key] = publishTime;
+      newVideoItems.push({...videoItem, publishTime});
+      await page.close();
+    }
   }
 
-  // 重新写回去
-  // fs.writeFileSync(publishJsonPath, JSON.stringify(videoPublishJson), {encoding: 'utf8', flag: 'w+'});
+  if (isLocalRun) {
+    // 重新写回去
+    fs.writeFileSync(publishJsonPath, JSON.stringify(videoPublishJson), {encoding: 'utf8', flag: 'w+'});
+  }
 
   return newVideoItems;
 }
