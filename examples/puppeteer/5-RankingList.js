@@ -414,7 +414,7 @@ async function getVideoPublishingTime(browser, videoList) {
       newVideoItems.push({...videoItem, publishTime: videoPublishJson[videoItem.key]});
       continue;
     }
-    if (isLocalRun) {
+    if (!isLocalRun) {
       newVideoItems.push({...videoItem, publishTime: ''});
     } else {
       const page = await browser.newPage();
@@ -446,7 +446,7 @@ async function getVideoPublishingTime(browser, videoList) {
     }
   }
 
-  if (isLocalRun) {
+  if (!isLocalRun) {
     // 重新写回去
     fs.writeFileSync(publishJsonPath, JSON.stringify(videoPublishJson), {encoding: 'utf8', flag: 'w+'});
   }
