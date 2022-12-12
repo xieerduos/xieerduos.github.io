@@ -20,16 +20,29 @@ npm install
 
 #### docker 方式
 
+##### 开发环境
+
+启动 Mongodb 服务器
+
+```bash
+# 下面命令最终会执行这个 `docker-compose -f docker-compose.dev.yml up`
+npm start
+```
+
+##### 生产环境
+
 构建镜像
 
 ```bash
-docker-compose -f docker-compose.yml build
+# docker-compose -f docker-compose.yml build
+npm run build
 ```
 
 部署项目
 
 ```bash
-docker-compose -f docker-compose.yml up -d
+# docker-compose -f docker-compose.yml up -d
+npm run up
 ```
 
 #### 客户端方式
