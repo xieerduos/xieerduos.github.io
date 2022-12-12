@@ -20,7 +20,17 @@ npm install
 
 #### docker 方式
 
-后续更新
+构建镜像
+
+```bash
+docker-compose -f docker-compose.yml build
+```
+
+部署项目
+
+```bash
+docker-compose -f docker-compose.yml up -d
+```
 
 #### 客户端方式
 
