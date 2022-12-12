@@ -8,6 +8,37 @@
 
 https://gitee.com/fe521/sso-app
 
+## 启动运行项目
+
+### 安装依赖
+
+```bash
+npm install
+```
+
+### 运行 MongoDB 服务器
+
+#### docker 方式
+
+后续更新
+
+#### 客户端方式
+
+命令行下运行 MongoDB 服务器
+
+```bash
+# D:\mongodb是mongodb的安装目录
+D:\mongodb\bin\mongod --dbpath D:\data\db
+```
+
+如何安装 Mongodb 看这个文档 https://www.runoob.com/mongodb/mongodb-window-install.html
+
+### 运行项目
+
+```bash
+npm start
+```
+
 ## 实现功能
 
 | 序号 | 接口               | 请求方法 | 功能                         | 备注                                                |
