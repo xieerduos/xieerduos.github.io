@@ -20,6 +20,8 @@ npm install
 
 #### docker 方式
 
+Windows Docker 安装 https://www.runoob.com/docker/windows-docker-install.html
+
 ##### 开发环境
 
 启动 Mongodb 服务器
