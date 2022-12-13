@@ -61,6 +61,10 @@ D:\mongodb\bin\mongod --dbpath D:\data\db
 ### 运行项目
 
 ```bash
+cd ./backend
+```
+
+```bash
 npm start
 ```
 
