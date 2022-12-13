@@ -83,3 +83,5 @@
 - [JavaScript 网站加载速度优化-减少白屏时间](/frontend/1206-JavaScript-async-defer.md)
 
 - [Nodejs 开发接口-实现用户的增删改查、token 处理](/frontend/1212-Nodejs-dev-api-curd-user.md)
+
+- [ChatGPT 无法使用解决方案](/frontend/1214-chatgpt-unable-to-work.md)
