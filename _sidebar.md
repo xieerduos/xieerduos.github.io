@@ -87,3 +87,5 @@
 - [ChatGPT 无法使用解决方案](/frontend/1214-chatgpt-unable-to-work.md)
 
 - [感染新冠肺炎症状、体温和吃药时间表](/frontend/1214-COVID-19.md)
+
+- [Open ai find parent](/frontend/1215-openai-find-parent.md)
