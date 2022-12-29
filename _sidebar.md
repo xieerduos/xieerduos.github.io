@@ -91,3 +91,5 @@
 - [Open ai find parent](/frontend/1215-openai-find-parent.md)
 
 - [面试题八股文链接](/frontend/1226-InterviewQuestions.md)
+
+- [如何使用 Markdown 写简历](/frontend/1229-resume-pdf-markdown.md)
