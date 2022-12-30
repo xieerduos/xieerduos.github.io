@@ -93,3 +93,5 @@
 - [面试题八股文链接](/frontend/1226-InterviewQuestions.md)
 
 - [如何使用 Markdown 写简历](/frontend/1229-resume-pdf-markdown.md)
+
+- [前端模拟面试一面及答案](/frontend/1231-前端模拟面试一面及答案.md)
