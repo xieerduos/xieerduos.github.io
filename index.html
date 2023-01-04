@@ -109,7 +109,7 @@
       let uuid = localStorage.getItem('uuid');
       if (!uuid) {
         uuid = uuidv4();
-        sessionStorage.setItem('uuid', uuid);
+        localStorage.setItem('uuid', uuid);
       }
       window.onhashchange = onhashchange;
       onhashchange();
