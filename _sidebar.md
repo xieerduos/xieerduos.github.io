@@ -103,3 +103,5 @@
 - [前端模拟面试题及答案-JavaScript-作用域-闭包-执行上下文](/frontend/230103-前端模拟面试题及答案-JavaScript-作用域-闭包-执行上下文.md)
 
 - [前端模拟面试题及答案-JavaScript-继承-原型和原型链-代码执行机制](/frontend/230103-前端模拟面试题及答案-JavaScript-继承-原型和原型链-代码执行机制.md)
+
+- [前端模拟面试题及答案-JavaScript-垃圾回收机制](/frontend/230103-前端模拟面试题及答案-JavaScript-垃圾回收机制.md)
