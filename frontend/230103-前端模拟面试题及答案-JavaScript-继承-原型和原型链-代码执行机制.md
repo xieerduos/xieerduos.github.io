@@ -131,13 +131,13 @@ console.log(tom.type); // Cat
 
 JavaScript 代码在执行时，会进行如下流程：
 
-1. 首先，JavaScript 引擎会对代码进行词法分析（Lexical Analysis），将代码分解为若干个词法单元（Lexical Unit）。
+1. 首先，JavaScript 引擎会对代码进行`词法分析`（Lexical Analysis），将代码分解为若干个`词法单元`（Lexical Unit）。
 
-2. 接着，JavaScript 引擎会对词法单元进行语法分析（Syntax Analysis），将词法单元组合成语法树（Syntax Tree）。
+2. 接着，JavaScript 引擎会对`词法单元`进行`语法分析`（Syntax Analysis），将词法单元组`合成语法树`（Syntax Tree）。
 
-3. 然后，JavaScript 引擎会将语法树转化为可执行代码，并将其加入执行上下文（Execution Context）的代码执行栈（Execution Stack）中。
+3. 然后，JavaScript 引擎会将`语法树`转化为`可执行代码`，并将其加入`执行上下文`（Execution Context）的`代码执行栈`（Execution Stack）中。
 
-4. 当代码执行栈中的代码执行完毕后，JavaScript 引擎会从执行上下文中弹出执行栈，并将控制权交回调用者。
+4. 当代码执行栈中的代码执行完毕后，JavaScript 引擎会从`执行上下文中弹出执行栈`，并将控制权交回调用者。
 
 这样，JavaScript 代码就被执行完毕。
 
