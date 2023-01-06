@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>程序员李钟意-讲前端</title>
+    <style>
+      /* 请求默认样式 */
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar-container {
+        background: #ffffff;
+      }
+      .navbar-wrap {
+        width: 1200px;
+        height: 80px;
+        margin: 0 auto;
+        background-color: red;
+      }
+      .content-container {
+        /* 高度等于 浏览器高度 - 顶部高度 */
+        height: calc(100vh - 80px);
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- html 代码结构 -->
+    <div id="app">
+      <!-- start 上面 top 顶部导航区 -->
+      <div class="navbar-container">
+        <div class="navbar-wrap"></div>
+      </div>
+      <!-- end 上面 top 顶部导航区 -->
+
+      <!-- start 内容区域 -->
+      <div class="content-container">
+        <!-- 背景图 -->
+        <img width="100%" height="100%" src="./background.png" alt="背景图" title="背景图" />
+        <!-- 跳转按钮 -->
+      </div>
+      <!-- end 内容区域 -->
+    </div>
+  </body>
+</html>
