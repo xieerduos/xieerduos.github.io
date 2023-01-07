@@ -99,9 +99,12 @@ function writeRankingMdfile(
     // 表内容
     const tableBody = data.reduce((acc, item, index) => {
       total += item.like;
-      acc += `|${index + 1}|${item.like}|[${item.title.replaceAll('\n', '-')}](https://douyin.com${item.href})|${
-        Array.isArray(item.tags) && item.tags.join(',')
-      }|${item.publishTime || ''}|\n`;
+      acc += `|${index + 1}|${item.like}|[${String((item && item.title) || '').replaceAll(
+        '\n',
+        '-'
+      )}](https://douyin.com${item.href})|${Array.isArray(item.tags) && item.tags.join(',')}|${
+        item.publishTime || ''
+      }|\n`;
       return acc;
     }, '\n');
 
