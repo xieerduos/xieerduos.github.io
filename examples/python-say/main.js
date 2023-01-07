@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, screen, globalShortcut, BrowserWindow} = require('electron');
+const {app, clipboard, screen, globalShortcut, BrowserWindow} = require('electron');
 const path = require('path');
 const {spawn} = require('child_process');
 
@@ -35,7 +35,6 @@ const sayText = (text) => () => {
     mainWindow.webContents.send('show-say-text', text);
 
     mainWindow.setAlwaysOnTop(true);
-    mainWindow.moveTop();
     mainWindow.show();
 
     let y = -40;
@@ -60,6 +59,13 @@ const sayText = (text) => () => {
   }
 };
 
+const sayPaste = () => {
+  const text = clipboard.readText();
+  console.log('text', text);
+  // 获取剪切板内容
+  spawn('python', ['speech.py', text]);
+};
+
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
@@ -69,8 +75,9 @@ app.whenReady().then(() => {
   globalShortcut.register('F4', sayText('感谢你的关注'));
   globalShortcut.register('F5', sayText('没有点关注的点点关注'));
   globalShortcut.register('F6', sayText('百度搜索“程序员李钟意”'));
-  globalShortcut.register('F7', sayText('主播是前端开发，可以提问前端的问题'));
+  globalShortcut.register('F7', sayText('主播是前端开发，提问前端的问题'));
   globalShortcut.register('F8', sayText('点关注 私聊我 进学习群'));
+  globalShortcut.register('ctrl+space', sayPaste);
 
   createWindow();
 
