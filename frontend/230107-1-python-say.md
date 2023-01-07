@@ -174,7 +174,7 @@ python speech.py "欢迎大家"
 
 ### 三. 获取 electron-quick-start demo
 
-#### 1. 下载地址
+1. 下载地址
 
 https://github.com/electron/electron-quick-start
 
@@ -191,3 +191,11 @@ https://github.com/electron/electron-quick-start
   globalShortcut.register('F7', sayText('主播是前端开发，可以提问前端的问题'));
   globalShortcut.register('F8', sayText('点关注 私聊我 进学习群'));
 ```
+
+---
+
+### 完整代码
+
+Github
+
+[/examples/python-say/](https://github.com/xieerduos/xieerduos.github.io/tree/main/examples/python-say))
