@@ -1,0 +1,19 @@
+{
+  "name": "python-say",
+  "version": "1.0.0",
+  "description": "快捷键播放语音",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "keywords": [],
+  "author": "程序员李钟意@抖音",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^22.0.0"
+  },
+  "dependencies": {
+    "gsap": "^3.11.4"
+  }
+}

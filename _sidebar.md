@@ -115,3 +115,5 @@
 - [付费 code review](/frontend/230106-2-code-review.md)
 
 - [前端模拟面试题及答案-JavaScript 中使用 new 关键字时，会发生什么](/frontend/230106-3-new-key.md)
+
+- [AI 迎宾 -前端学 python - 语音播放](/frontend/230107-1-python-say.md)
