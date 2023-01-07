@@ -195,3 +195,15 @@ https://github.com/electron/electron-quick-start
 Github
 
 [/examples/python-say/](https://github.com/xieerduos/xieerduos.github.io/tree/main/examples/python-say))
+
+---
+
+## 使用 HTML5 代码实现 - 文本转语音
+
+感谢评论区同学：
+
+```js
+const say = new window.SpeechSynthesisUtterance('你好，欢迎来到直播间');
+undefined;
+window.speechSynthesis.speak(say);
+```
