@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Speech to Text</title>
+  </head>
+  <body>
+    <!-- 创建一个按钮，用户点击后开始转换语音为文本 -->
+    <button id="start-button">开始</button>
+    <!-- 创建一个段落，用来输出转换后的文本 -->
+    <p id="output"></p>
+
+    <!-- 使用 JavaScript 代码检测浏览器是否支持 Web Speech API -->
+    <script>
+      // 选择页面上的 "开始" 按钮
+      const button = document.querySelector('#start-button');
+      // 选择页面上的输出段落
+      const output = document.querySelector('#output');
+
+      // 如果浏览器支持 Web Speech API
+      if ('webkitSpeechRecognition' in window) {
+        // 创建一个新的 SpeechRecognition 对象
+        const recognition = new webkitSpeechRecognition();
+        // 设置连续识别模式
+        recognition.continuous = true;
+        // 设置为输出临时结果
+        recognition.interimResults = true;
+
+        // 当有识别结果时调用的回调函数
+        recognition.onresult = (event) => {
+          // 临时识别结果
+          let interimTranscript = '';
+          // 最终识别结果
+          let finalTranscript = '';
+
+          // 遍历所有的识别结果
+          for (let i = event.resultIndex; i < event.results.length; i++) {
+            // 获取当前的识别结果
+            const transcript = event.results[i][0].transcript;
+
+            console.log('transcript', transcript);
+            // 如果当前的识别结果是最终结果
+            if (event.results[i].isFinal) {
+              // 将当前结果添加到最终识别结果中
+              finalTranscript += transcript;
+            } else {
+              // 否则，将当前结果添加到临时识别结果中
+              interimTranscript += transcript;
+            }
+          }
+
+          // 如果有最终识别结果，则输出最终识别结果；否则，输出临时识别结果
+          output.textContent = finalTranscript || interimTranscript;
+        };
+
+        // 给 "开始" 按钮添加点击事件
+        button.addEventListener('click', () => {
+          // 开始识别
+          recognition.start();
+        });
+      }
+    </script>
+  </body>
+</html>

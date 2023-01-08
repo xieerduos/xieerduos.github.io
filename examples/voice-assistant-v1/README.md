@@ -1,4 +1,4 @@
-# 语音直播助理
+# AI 迎宾 -前端学 python - 语音播放
 
 ## 版本管理
 
@@ -32,16 +32,20 @@
 2. 快捷键对应的播放的语音
 
 ```
-F3 欢迎来到程序员李钟意的直播间
-F4 感谢你的关注
-F5 没有点关注的点点关注
-F6 百度搜索“程序员李钟意”
-F7 主播是前端开发，可以提问前端的问题
-F8 点关注 私聊我 进学习群
+F1 欢迎来到直播间
+F2 （重命名高频使用）
+
+F3 我爱程序员
+F4 大家早上好
+
+F5
+F6
+F7
+F8
 ```
 
 3. 顶部自上而下-灵动岛显示文本
-4. 选中文本，按快捷键，播放选中的内容
+4. 选中文本，按快捷键，播放选中的内容（等待实现）
 
 ## 技术实现
 
@@ -192,18 +196,4 @@ https://github.com/electron/electron-quick-start
 
 ### 完整代码
 
-Github
-
-[/examples/python-say/](https://github.com/xieerduos/xieerduos.github.io/tree/main/examples/python-say))
-
----
-
-## 使用 HTML5 代码实现 - 文本转语音
-
-感谢评论区同学：
-
-```js
-const say = new window.SpeechSynthesisUtterance('你好，欢迎来到直播间');
-undefined;
-window.speechSynthesis.speak(say);
-```
+[/examples/voice-assistant1.0/](/examples/voice-assistant1.0/)

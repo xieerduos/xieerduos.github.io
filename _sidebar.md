@@ -116,4 +116,8 @@
 
 - [前端模拟面试题及答案-JavaScript 中使用 new 关键字时，会发生什么](/frontend/230106-3-new-key.md)
 
-- [语音直播助理](/frontend/230107-1-python-say.md)
+- [前端配置-Python-环境](/frontend/230108-1-frontend-config-python-env.md)
+
+- [语音直播助理 1.0.0](/frontend/230107-1-voice-assistant-v1.md)
+
+- [语音直播助理 2.0.0](/frontend/230108-2-voice-assistant-v2.md)
