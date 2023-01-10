@@ -120,21 +120,50 @@ SEO（Search Engine Optimization）：汉译为搜索引擎优化。
 
 将你的网站地图文件上传到你的网站根目录。通常情况下，你的网站根目录的地址应该是 https://ffffee.com/。
 
-在 Google Search Console 中提交网站地图
+##### **在 Google Search Console 中提交网站地图**
+
 登录到 Google Search Console，然后单击左侧菜单中的“网站地图”。
 
 在“提交新网站地图”文本框中，输入你的网站地图文件的完整 URL，例如 https://ffffee.com/sitemap.xml。
 然后单击“提交”按钮。
 
-这样，Google 就可以轻松地获取你的网站地图文件
+<img src="/images/frontend/seo_sitemap.png" alt="Google Search Console 添加新的sitemap.xml" title="Google Search Console 添加新的sitemap.xml" style="max-height: 200px;">
 
-#### 3. 检查网站地图文件是否被成功提交
+这样，Google 就可以轻松地获取你的网站地图文件。
+
+**检查网站地图文件是否被成功提交**
 
 回到 Google Search Console 的“网站地图”页面，你应该能看到你的网站地图文件已被成功提交。
 
 你也可以在“网站地图”页面的“错误”标签下查看任何错误信息。
 
 如果你的网站地图文件被成功提交，那么 Google 就会开始索引你的网站。这可能需要一段时间，但是当 Google 索引完你的网站后，你的网站就会在搜索结果中出现。
+
+<img src="/images/frontend/seo_sitemap_ok.png" alt="检查网站地图文件是否被成功提交" title="检查网站地图文件是否被成功提交" style="max-height: 200px;">
+
+##### **在百度站长平台上提交数据**
+
+上传到百度站长平台 https://ziyuan.baidu.com/site/index
+
+1. 添加网址
+
+<img src="/images/frontend/seo_sitemap_baidu_add.png" alt="添加网址" title="添加网址" style="max-height: 200px;">
+
+2. 输入域名
+
+<img src="/images/frontend/seo_sitemap_baidu_input_site.png" alt="输入域名" title="输入域名" style="max-height: 200px;">
+
+3. 验证域名
+
+<img src="/images/frontend/seo_sitemap_baidu_verify.png" alt="输入域名" title="输入域名" style="max-height: 200px;">
+
+4. 域名验证成功
+
+<img src="/images/frontend/seo_sitemap_baidu_ok.png" alt="域名验证成功" title="域名验证成功" style="max-height: 200px;">
+
+5. 提交提交 sitemap.xml 文件
+
+<img src="/images/frontend/seo_sitemap_baidu_submit.png" alt="提交提交 sitemap.xml 文件" title="提交提交 sitemap.xml 文件" style="max-height: 200px;">
 
 ### 使用社交媒体帮助推广你的网站
 
