@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>钟意未来</title>
+    <meta name="keywords" content="程序员李钟意;前端;前端开发;程序员;李钟意;Vue开发实战;Electron开发实战;" />
+    <meta
+      name="description"
+      content="钟意未来;抖音@程序员李钟意-首页;前端;前端开发;程序员;李钟意;Vue开发实战;Electron开发实战;"
+    />
+    <meta name="googlebot" content="index,follow" />
+    <meta name="robots" content="index,follow" />
     <link rel="icon" href="./logo.svg?" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="钟意未来;抖音@程序员李钟意-首页;抖音@程序员李钟意文档地址;" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
     <link rel="stylesheet" href="./docsify@4/vue.css" />
     <style>
@@ -23,10 +29,18 @@
       .markdown-section {
         max-width: 1400px;
       }
+      .seo-header {
+        position: absolute;
+        left: 9999999999px;
+        line-height: 1000px;
+      }
     </style>
   </head>
 
   <body>
+    <h1 class="seo-header">
+      <a href="https://ffffee.com">李钟意,抖音程序员李钟意,前端李钟意,前端</a>
+    </h1>
     <div id="app"></div>
     <script>
       window.$docsify = {
@@ -87,6 +101,9 @@
         }
       };
       if (/^\/node_modules\//gi.test(window.location.pathname)) {
+        window.location.href = '/';
+      }
+      if (/^\/en\//gi.test(window.location.pathname)) {
         window.location.href = '/';
       }
     </script>
