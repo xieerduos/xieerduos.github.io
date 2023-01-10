@@ -84,6 +84,10 @@ SEO（Search Engine Optimization）：汉译为搜索引擎优化。
 
 ### 建立网站地图
 
+抖音 sitemap.xml： https://www.douyin.com/sitemap.xml
+
+当前网站 sitemap.xml： <a href="/sitemap.xml" target="_blank">https://www.ffffee.com/sitemap.xml</a>
+
 建立网站地图可以帮助搜索引擎理解你的网站的结构，并使网站内的每一页都能被搜索引擎收录。
 
 建立网站地图的步骤如下：
@@ -94,13 +98,8 @@ SEO（Search Engine Optimization）：汉译为搜索引擎优化。
 
 例如，如果你的网站包含如下页面：
 
-- https://mywebsite.com/about
-- https://mywebsite.com/products
-- https://mywebsite.com/products/product1
-- https://mywebsite.com/products/product2
-- https://mywebsite.com/blog
-- https://mywebsite.com/blog/post1
-- https://mywebsite.com/blog/post2
+- https://ffffee.com/about
+- https://ffffee.com/products
 
 你的网站地图文件应该包含以下内容：
 
@@ -108,25 +107,10 @@ SEO（Search Engine Optimization）：汉译为搜索引擎优化。
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://mywebsite.com/about</loc>
+    <loc>https://ffffee.com/about</loc>
   </url>
   <url>
-    <loc>https://mywebsite.com/products</loc>
-  </url>
-  <url>
-    <loc>https://mywebsite.com/products/product1</loc>
-  </url>
-  <url>
-    <loc>https://mywebsite.com/products/product2</loc>
-  </url>
-  <url>
-    <loc>https://mywebsite.com/blog</loc>
-  </url>
-  <url>
-    <loc>https://mywebsite.com/blog/post1</loc>
-  </url>
-  <url>
-    <loc>https://mywebsite.com/blog/post2</loc>
+    <loc>https://ffffee.com/products</loc>
   </url>
 </urlset>
 
@@ -134,12 +118,12 @@ SEO（Search Engine Optimization）：汉译为搜索引擎优化。
 
 #### 2. 上传网站地图文件
 
-将你的网站地图文件上传到你的网站根目录。通常情况下，你的网站根目录的地址应该是 https://mywebsite.com/。
+将你的网站地图文件上传到你的网站根目录。通常情况下，你的网站根目录的地址应该是 https://ffffee.com/。
 
 在 Google Search Console 中提交网站地图
 登录到 Google Search Console，然后单击左侧菜单中的“网站地图”。
 
-在“提交新网站地图”文本框中，输入你的网站地图文件的完整 URL，例如 https://mywebsite.com/sitemap.xml。
+在“提交新网站地图”文本框中，输入你的网站地图文件的完整 URL，例如 https://ffffee.com/sitemap.xml。
 然后单击“提交”按钮。
 
 这样，Google 就可以轻松地获取你的网站地图文件
