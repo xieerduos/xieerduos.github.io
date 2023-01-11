@@ -127,3 +127,5 @@
 - [前端跨域??简单易懂的跨域解决方案](/frontend/230109-2-前端跨域-简单易懂的跨域解决方案.md)
 
 - [前端 SEO ??前端如何进行 SEO 搜索引擎优化](/frontend/230110-1-frontend-seo.md)
+
+- [前端安全-如何防止 XSS 攻击和保护用户隐私](/frontend/230111-web-secure.md)
