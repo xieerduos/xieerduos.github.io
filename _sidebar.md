@@ -128,4 +128,6 @@
 
 - [前端 SEO ??前端如何进行 SEO 搜索引擎优化](/frontend/230110-1-frontend-seo.md)
 
-- [前端安全-如何防止 XSS 攻击和保护用户隐私](/frontend/230111-web-secure.md)
+- [前端安全-如何防止 XSS 攻击和保护用户隐私](/frontend/230111-front-end-security.md)
+
+- [前端工作流程-了解前端工作流程，包括需求分析、设计、开发、测试、发布等步骤。](/frontend/230112-front-end-workflow.md)
