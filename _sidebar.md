@@ -131,3 +131,5 @@
 - [前端安全-如何防止 XSS 攻击和保护用户隐私](/frontend/230111-front-end-security.md)
 
 - [前端工作流程-了解前端工作流程，包括需求分析、设计、开发、测试、发布等步骤。](/frontend/230112-front-end-workflow.md)
+
+- [前端动画：学习如何使用 CSS 和 JavaScript 实现各种动画效果](/frontend/230113-front-end-css-javascript-animation.md)
