@@ -288,8 +288,14 @@ async function getVideoList() {
 
     // 等待3秒, 等待异步接口请求
     log('4.等待3秒, 等待异步接口请求...');
-    await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+    await new Promise((resolve, reject) => setTimeout(resolve, 10 * 1000));
   };
+  await loadMoreHandler();
+  await loadMoreHandler();
+  await loadMoreHandler();
+  await loadMoreHandler();
+  await loadMoreHandler();
+  await loadMoreHandler();
   await loadMoreHandler();
   await loadMoreHandler();
 
