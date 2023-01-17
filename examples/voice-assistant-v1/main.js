@@ -1,6 +1,8 @@
 // Modules to control application life and create native browser window
 const {app, clipboard, screen, globalShortcut, BrowserWindow} = require('electron');
 const path = require('path');
+const {exec} = require('child_process');
+
 // const {spawn} = require('child_process');
 
 let mainWindow;
@@ -59,7 +61,14 @@ const sayText = (text) => () => {
   }
 };
 
-const sayPaste = () => {
+const sayPaste = async () => {
+  // const robot = require("robotjs");
+
+  // robot.keyToggle("control", "down");
+  // robot.keyToggle("c", "down");
+  // robot.keyToggle("c", "up");
+  // robot.keyToggle("control", "up");
+
   const text = clipboard.readText();
   console.log('text', text);
   // 获取剪切板内容
@@ -72,13 +81,13 @@ const sayPaste = () => {
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
   // 注册快捷键
-  globalShortcut.register('F3', sayText('欢迎来到程序员李钟意的直播间'));
+  // globalShortcut.register('F3', sayText('欢迎来到直播间'));
   globalShortcut.register('F4', sayText('感谢你的关注'));
-  globalShortcut.register('F5', sayText('没有点关注的点点关注'));
+  globalShortcut.register('F5', sayText('欢迎来到直播间'));
   globalShortcut.register('F6', sayText('百度搜索“程序员李钟意”'));
-  globalShortcut.register('F7', sayText('前端开发语音直播助理 1.2.0 版本'));
+  globalShortcut.register('F7', sayText('直播主题：使用 requestAnimationFrame 优化页面动画性能'));
   globalShortcut.register('F8', sayText('点关注 私聊我 进学习群'));
-  globalShortcut.register('ctrl+space', sayPaste);
+  globalShortcut.register('alt+1', sayPaste);
 
   createWindow();
 
