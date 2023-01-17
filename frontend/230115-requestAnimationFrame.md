@@ -173,10 +173,16 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/window/requestAnimationFrame
 
 ---
 
-## FAQ
+## 常见问题解答
 
 ### requestAnimationFrame 是宏任务吗?
 
-requestAnimationFrame 是浏览器 API，它返回一个 long 类型的 ID 值，表示这个动画请求。
+requestAnimationFrame 是一个由浏览器提供的 API，它能够在屏幕重绘前通知浏览器调用回调函数。
 
-它使用浏览器重绘来触发回调函数，因此它是一个`微任务`。
+> 根据 W3C 官方文档：
+
+> "requestAnimationFrame() 方法告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。"
+
+> "这个方法使动画更加平滑，因为它避免了因为 JavaScript 脚本的执行速度过快而导致的动画卡顿现象。"
+
+这说明 requestAnimationFrame 是和浏览器屏幕刷新率相关的，它是在屏幕重绘前调用，所以它属于宏任务.
