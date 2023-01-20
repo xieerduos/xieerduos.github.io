@@ -26,6 +26,20 @@ function createWindow() {
   // and load the index.html of the app.
   mainWindow.loadFile('index.html');
 }
+let assistant;
+function createAssistant() {
+  assistant = new BrowserWindow({
+    width: 800,
+    height: 600,
+    show: true,
+    frame: true,
+    skipTaskbar: false,
+    webPreferences: {}
+  });
+
+  // and load the index.html of the app.
+  assistant.loadURL('https://ffffee.com/examples/voice-assistant-v2/index.html');
+}
 
 let intervalId = null;
 let timeoutId = null;
@@ -46,7 +60,7 @@ const sayText = (text) => () => {
 
     intervalId = setInterval(() => {
       y++;
-      mainWindow.setBounds({y});
+      mainWindow.setBounds({y, width: 300, height: 40});
       if (y >= 100) {
         clearInterval(intervalId);
         timeoutId = setTimeout(() => {
@@ -90,6 +104,8 @@ app.whenReady().then(() => {
   globalShortcut.register('alt+1', sayPaste);
 
   createWindow();
+
+  createAssistant();
 
   app.on('activate', function () {
     // On macOS it's common to re-create a window in the app when the
