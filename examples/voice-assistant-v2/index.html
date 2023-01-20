@@ -24,13 +24,13 @@
       let say = new window.SpeechSynthesisUtterance('');
       // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
       // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
-      say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
+      // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
 
       function saySpeech(textContent) {
         // 播放文本
         say = new window.SpeechSynthesisUtterance(textContent);
         console.log('window.speechSynthesis.getVoices() :>> ', window.speechSynthesis.getVoices());
-        say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
+        // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
         // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ko-KR')[0];
         // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
         window.speechSynthesis.speak(say);
