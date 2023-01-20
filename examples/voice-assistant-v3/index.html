@@ -17,8 +17,10 @@
 
         recognition.onresult = (event) => {
           const text = event.results[0][0].transcript;
+          console.log('text :>> ', text);
           // 播放文本
           const say = new window.SpeechSynthesisUtterance(text);
+          say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
           window.speechSynthesis.speak(say);
           console.log('语音识别到的文本', text);
         };
