@@ -99,7 +99,7 @@ app.whenReady().then(() => {
   globalShortcut.register('F4', sayText('感谢你的关注'));
   globalShortcut.register('F5', sayText('欢迎来到直播间'));
   globalShortcut.register('F6', sayText('需要文档地址，百度搜索“程序员李钟意”'));
-  globalShortcut.register('F7', sayText('直播主题：使用 requestAnimationFrame 优化页面动画性能'));
+  globalShortcut.register('F7', sayText('大家好欢迎你来到直播间这里是语音识别助理'));
   globalShortcut.register('F8', sayText('点关注 私聊我 进学习群'));
   globalShortcut.register('alt+1', sayPaste);
 
