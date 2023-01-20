@@ -7,22 +7,42 @@
   <body>
     <!-- 创建一个按钮，用户点击后开始转换语音为文本 -->
     <button id="start-button">开始</button>
+    <button id="stop-button">停止</button>
     <!-- 创建一个段落，用来输出转换后的文本 -->
     <p id="output"></p>
 
     <!-- 使用 JavaScript 代码检测浏览器是否支持 Web Speech API -->
-    <script>
+    <script type="module">
+      import debounce from './debounce.js';
+      console.log('debounce :>> ', debounce);
+      let recognition;
       // 选择页面上的 "开始" 按钮
-      const button = document.querySelector('#start-button');
+      const startButton = document.querySelector('#start-button');
+      const stopButton = document.querySelector('#stop-button');
       // 选择页面上的输出段落
       const output = document.querySelector('#output');
+
+      function saySpeech(textContent) {
+        // 播放文本
+        const say = new window.SpeechSynthesisUtterance(textContent.slice(0, 15));
+        window.speechSynthesis.speak(say);
+        console.log('语音识别到的文本', textContent);
+
+        setTimeout(() => {
+          console.log('recognition :>> ', recognition);
+          recognition.stop();
+          recognition.start();
+        }, 3 * 1000);
+      }
+
+      const debounced = debounce(saySpeech, 1000, false);
 
       // 如果浏览器支持 Web Speech API
       if ('webkitSpeechRecognition' in window) {
         // 创建一个新的 SpeechRecognition 对象
-        const recognition = new webkitSpeechRecognition();
+        recognition = new webkitSpeechRecognition();
         // 设置连续识别模式
-        recognition.continuous = true;
+        recognition.continuous = false;
         // 设置为输出临时结果
         recognition.interimResults = true;
 
@@ -50,13 +70,23 @@
           }
 
           // 如果有最终识别结果，则输出最终识别结果；否则，输出临时识别结果
-          output.textContent = finalTranscript || interimTranscript;
+          const textContent = finalTranscript || interimTranscript;
+          output.textContent = textContent.replace(/李忠义/gi, '李钟意');
         };
 
+        recognition.addEventListener('end', (event) => {
+          console.log('end event :>> ', event);
+          debounced(output.textContent);
+        });
+
         // 给 "开始" 按钮添加点击事件
-        button.addEventListener('click', () => {
+        startButton.addEventListener('click', () => {
           // 开始识别
           recognition.start();
+        });
+        stopButton.addEventListener('click', () => {
+          // 结束
+          recognition.stop();
         });
       }
     </script>
