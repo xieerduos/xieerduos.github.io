@@ -21,10 +21,18 @@
       const stopButton = document.querySelector('#stop-button');
       // 选择页面上的输出段落
       const output = document.querySelector('#output');
+      let say = new window.SpeechSynthesisUtterance('');
+      // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
+      // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
+      say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
 
       function saySpeech(textContent) {
         // 播放文本
-        const say = new window.SpeechSynthesisUtterance(textContent.slice(0, 15));
+        say = new window.SpeechSynthesisUtterance(textContent);
+        console.log('window.speechSynthesis.getVoices() :>> ', window.speechSynthesis.getVoices());
+        say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
+        // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ko-KR')[0];
+        // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
         window.speechSynthesis.speak(say);
         console.log('语音识别到的文本', textContent);
 
