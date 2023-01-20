@@ -147,3 +147,5 @@
 - [推荐好用的截图工具 snipaste](/frontend/230110-2-snipaste.md)
 
 - [直播讲解测试题目汇总](/frontend/230117-2-live-interpretation-test-questions.md)
+
+- [git 命令的应用入门到精通](/frontend/230120-1-live-git-cmd.md)
