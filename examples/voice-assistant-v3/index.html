@@ -8,5 +8,17 @@
   </head>
   <body>
     <div id="app">hello world, 大家好！</div>
+    <script>
+      window.onload = () => {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new SpeechRecognition();
+
+        recognition.start();
+
+        recognition.onresult = (event) => {
+          console.log(event.results[0][0].transcript);
+        };
+      };
+    </script>
   </body>
 </html>
