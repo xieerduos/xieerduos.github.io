@@ -89,6 +89,115 @@ git remote add origin https://gitee.com/fe521/git-learn.git
 ## 常用的命令都有哪些
 
 ```bash
+git log --date=short
+git log --date=iso
+git log --oneline
+git log --oneline --stat
+
+# 查看本地分支
+git branch
+# 基于当前分支创建一个新的分支 名称的dev
+git checkout -b dev
+
+# 切换分支到 master， git switch master
+git checkout master
+
+# 修改当前分支名称 新分支名称为main
+git branch -M main
+
+# 查看当前本地分支有哪些？
+# 有dev、master ,现在所在的分支是 master
+PS D:\project\git-learn> git branch
+  dev
+* master
+# 修改当前master名称为main
+PS D:\project\git-learn> git branch -M main
+# 查看当前本地分支有哪些？
+# 有dev、main ,现在所在的分支是 main
+PS D:\project\git-learn> git branch
+  dev
+* main
+
+# 查看远程分支
+PS D:\project\git-learn> git branch -r
+  origin/master
+
+# 查看远程和本地代码分支
+PS D:\project\git-learn> git branch -a
+  dev
+* main
+  remotes/origin/master
+
+
+PS D:\project\git-learn> git branch
+  dev
+* main
+PS D:\project\git-learn> git merge dev
+Updating e2db8f1..62a3a5b
+Fast-forward
+ index.html | 4 +++-
+ test.txt   | 6 +++++-
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+PS D:\project\git-learn>
+```
+
+遇到的问题：本地仓库修改了分支名称，git push 的时候出现错误，处理方法
+
+1. git push origin main
+
+把新分支推送到远程
+
+2. git push origin --delete master
+
+删除远程分支
+
+**把本地的新分支提交到远程仓库**
+
+```bash
+PS D:\project\git-learn> git push
+fatal: The current branch dev has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin dev
+
+PS D:\project\git-learn>  git push --set-upstream origin dev
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+remote: Powered by GITEE.COM [GNK-6.4]
+remote: Create a pull request for 'dev' on Gitee by visiting:
+remote:     https://gitee.com/fe521/git-learn/pull/new/fe521:dev...fe521:main
+To https://gitee.com/fe521/git-learn.git
+ * [new branch]      dev -> dev
+Branch 'dev' set up to track remote branch 'dev' from 'origin'.
+PS D:\project\git-learn> git push
+Everything up-to-date
+PS D:\project\git-learn>
+```
+
+git push 出现错误`The upstream branch of your current branch does not match the name of your current branch`解决方法：
+
+```bash
+PS D:\project\git-learn> git push
+fatal: The upstream branch of your current branch does not match
+the name of your current branch.  To push to the upstream branch
+on the remote, use
+
+    git push origin HEAD:master
+
+To push to the branch of the same name on the remote, use
+
+    git push origin HEAD
+
+To choose either option permanently, see push.default in 'git help config'.
+PS D:\project\git-learn>     git push --set-upstream origin main
+Everything up-to-date
+Branch 'main' set up to track remote branch 'main' from 'origin'.
+PS D:\project\git-learn>
+
+PS D:\project\git-learn> git push
+Everything up-to-date
+```
+
+```bash
 git clone [远程地址] 本地地址
 
 git remote add
