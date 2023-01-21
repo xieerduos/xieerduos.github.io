@@ -244,21 +244,101 @@ git rebase
 
 ## 如何配合 Vscode 代码 管理你的代码
 
+## 拉取远程仓库代码到本地
+
+1. 本地生成 ssh key
+2. 把本地的公钥上传到代码仓库中 gitlab，github 这些
+3. git clone git@gitee.com:fe521/git-learn.git
+4. 拉取远程分支到本地
+
+```BASH
+# git fetch origin 远程分支的名称:本地分支的名称
+git fetch origin dev:dev
+
+PS D:\project\demo\git-learn> git branch
+* main
+PS D:\project\demo\git-learn> git fetch origin dev:dev
+From gitee.com:fe521/git-learn
+ * [new branch]      dev        -> dev
+PS D:\project\demo\git-learn> git branch
+  dev
+* main
+PS D:\project\demo\git-learn>
+```
+
+## 把本地仓库代码提交到一个新的仓库，github
+
+1. 要有 github 账号，注册账号
+2. github 创建一个和本地仓库一样的名称的仓库
+3. 拷贝上面的代码
+4. 修改 origin 为 github (正常不用改，如果你是多仓库管理，比如 gitee 和 github 都同时管理，那么你需要改)
+5. git push
+
+```bash
+git remote add github git@github.com:xieerduos/git-learn.git
+git branch -M main
+git push -u github main
+```
+
+```bash
+PS D:\project\demo\git-learn> git push -u github main
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS D:\project\demo\git-learn>
+```
+
+解决方案：
+
+```bash
+PS C:\Users\lizhongyi> cd ~
+PS C:\Users\lizhongyi> ls .\.ssh\
+
+
+    目录: C:\Users\lizhongyi\.ssh
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----         2021/9/20     17:47           2610 id_rsa
+-a----         2021/9/20     17:47            578 id_rsa.pub
+-a----         2023/1/21     11:05            843 known_hosts
+-a----         2023/1/20     23:49            184 known_hosts.old
+
+
+PS C:\Users\lizhongyi> cat .\.ssh\id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC6aB650WZ1Igxxw2KTOgCj8xDocZ1GRzkQRyopFhsuMl5eQ6MyfKJCH/I6J09vLE/+E3trWnPJUJFnVaOfGL/IJ0y9sPHXNWqp056Uo/MW8mPCJ/PkhC170Dci+j5Xi4uf9lRwrN9+xTIOvar6UMRtyU3B2Ln4LQyzD0fQqd4/uiGIpmvDol69Jf0T62GZVy9Hmyv5OOcLnzhu+zUGy1ZKdbs7AgGpdoWuo/VWS/XpopFz9B481DGcxp8h9vH+nhePXfop17SfCv/a63Yz4lgtsZNeDeBbaZNap7x7Lq7Lqc/qx7PUthc6fc7WyhjI0b+4PywCGVOsyJZXpKvohqXXn4NzRktWIDelme3+6sFUfxyqftcq2T3S2GjToBZlrDI8uNnH4RM2A7a/JYXtmfCYTtQCG7Yia42iugazM7vY9geQ2brTthIoweHG6/b03hx1e9o9RTCKAMgVfEilWVQNcOfZH8NWdwTIX20tVdYfFlarsPJvtZSbe+G6iR1hotc= lizhongyi@DESKTOP-1B3NPNM
+PS C:\Users\lizhongyi>
+
+# 重新pust 成功
+
+PS D:\project\demo\git-learn> git push -u github main
+Enumerating objects: 14, done.
+Counting objects: 100% (14/14), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (14/14), 1.90 KiB | 1.90 MiB/s, done.
+Total 14 (delta 3), reused 14 (delta 3), pack-reused 0
+remote: Resolving deltas: 100% (3/3), done.
+To github.com:xieerduos/git-learn.git
+ * [new branch]      main -> main
+Branch 'main' set up to track remote branch 'main' from 'github'.
+PS D:\project\demo\git-learn>
+
+```
+
+## git 冲突以及解决方案
+
+1. git pull 出现冲突
+2. git status (是否要取消 pull) git merge --abort
+3. 利用 vscode 修改代码，传入更改还是当前更改
+4. git add . 把修改后的文件添加到暂存区
+5. git commit 把修改后的内容 commit 到合并更改中
+6. 此时会出现一个命令行编辑器，
+   （1）ESC 键按一下
+   （2）按住 Shift 不放+分号键 底部会出现: 输入框
+   （3）wq 保存写入并退出。
+
 ## 有未完成的代码，如何把代码添加到另外的分支？
-
-git statsh save
-
-git checkout
-
-git merge（建议新手）
-
-git rebase （不建议新手使用，除非公司强迫你使用）
-
-版本相差不大，而且可以直接合并代码，如果版本不一样不能直接合并的。
-
-dev 未完成。
-main (线上分支)。 git statsh。
-
----
-
-题有 bug，为什么？如果 git 版本相差较大，怎么办。
