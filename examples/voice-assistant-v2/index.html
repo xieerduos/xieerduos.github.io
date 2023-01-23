@@ -22,23 +22,22 @@
       // 选择页面上的输出段落
       const output = document.querySelector('#output');
       let say = new window.SpeechSynthesisUtterance('');
-      // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
-      say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
+      say.volume = 0.6;
+      say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
       // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
-
+      // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
       function saySpeech(textContent) {
         // 播放文本
         say = new window.SpeechSynthesisUtterance(textContent);
+        say.volume = 0.6;
         console.log('window.speechSynthesis.getVoices() :>> ', window.speechSynthesis.getVoices());
-        say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
+        // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ja-JP')[0];
         // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'ko-KR')[0];
-        // say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
+        say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-HK')[0];
         window.speechSynthesis.speak(say);
         console.log('语音识别到的文本', textContent);
 
         setTimeout(() => {
-          console.log('recognition :>> ', recognition);
-
           output.textContent = '';
           recognition.stop();
           recognition.start();
@@ -63,6 +62,8 @@
           // 最终识别结果
           let finalTranscript = '';
 
+          console.log('event.results :>> ', event.results);
+
           // 遍历所有的识别结果
           for (let i = event.resultIndex; i < event.results.length; i++) {
             // 获取当前的识别结果
@@ -81,6 +82,7 @@
 
           // 如果有最终识别结果，则输出最终识别结果；否则，输出临时识别结果
           const textContent = finalTranscript || interimTranscript;
+          console.log('识别结果 :>> ', textContent);
           output.textContent = textContent.replace(/李忠义/gi, '李钟意');
         };
 
