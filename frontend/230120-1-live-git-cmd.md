@@ -342,3 +342,67 @@ PS D:\project\demo\git-learn>
    （3）wq 保存写入并退出。
 
 ## 有未完成的代码，如何把代码添加到另外的分支？
+
+详细一点：
+
+有 main 分支和 dev 分支，如果在 dev 分支上修改了内容，但是还没有 commit，如何把刚刚更改的代码 commit 到 main 分支
+
+如果在 dev 分支上修改了内容，但是还没有 commit，你可以使用下面的步骤将更改的代码提交到 main 分支上:
+
+- 首先确保你已经在 dev 分支上，使用 "git branch" 命令可以查看当前的分支。在命令行中如果显示 \* dev 表示当前在 dev 分支上。
+
+- 使用 "git stash" 命令将未提交的更改保存到 stash 中。这条命令会把当前分支上的所有未提交的更改保存到 stash 中。
+
+- 使用 "git checkout main" 命令切换到 main 分支。这样会切换到 main 分支，确保你在 main 分支上，可以使用 git branch 查看当前分支。
+
+- 使用 "git stash apply" 命令将 stash 中的更改应用到 main 分支上。这条命令会把 stash 中保存的未提交的更改应用到当前分支上。
+
+- 使用 "git commit -m 'message'" 命令将更改提交到 main 分支上。其中'message'是你自己给提交记录打的标签，方便查看。
+
+- 使用 "git push" 命令将更改推送到远程主机上。这样就把你在 dev 分支上的更改推送到 main 分支上了。
+
+值得注意的是，在使用 git stash apply 之前，如果 main 分支有新的更改，会导致冲突，需要手动解决。
+
+另外，在使用 git stash apply 之后，最好使用 git stash drop 来删除已经用过的 stash，避免之后混淆。
+
+### 为什么使用 git stash apply 而不是 git stash pop
+
+使用 git stash apply 和 git stash pop 都可以将 stash 中的更改应用到当前分支上。但是它们之间有一些区别:
+
+- git stash apply: 这条命令会将 stash 中的更改应用到当前分支上，但是不会删除 stash。这样你可以在需要的时候再次应用这些更改。
+
+- git stash pop: 这条命令会将 stash 中的更改应用到当前分支上，并且会删除 stash。这样你就不能再次应用这些更改了。
+
+在你想要把 dev 分支上的更改提交到 main 分支上时，使用 git stash apply 更保险一些，因为如果发现有问题，你可以再次应用 stash 中的更改来解决问题，而如果使用 git stash pop 会删除 stash 中的更改，不能再次应用。
+
+除非你确定没有问题可以直接删除 stash，否则最好使用 git stash apply 来应用 stash 中的更改
+
+### 如果 stash 里面有多个内容，git stash apply 如何指定某一个
+
+如果 stash 中有多个内容，你可以使用 git stash list 命令来查看 stash 列表。这条命令会显示所有 stash 的信息，包括 stash 的名称和描述。
+
+如果你想要指定应用某一个 stash，可以使用 git stash apply `<stash_name>` 命令，其中 `<stash_name>` 是 stash 列表中的名称，如:
+
+```bash
+git stash apply stash@{0}
+```
+
+这样就会应用 stash 列表中第 0 个 stash 中的更改。
+
+如果你想应用最新的一个 stash，可以使用 git stash apply 命令，而不需要指定具体的 stash 名称。
+
+如果你想删除已经应用过的 stash，可以使用 git stash drop `<stash_name>` 命令，其中 `<stash_name>` 是 stash 列表中的名称。
+
+另外还有一条 git stash apply --index `<stash_name>` 可以指定 stash 且尝试把已经被修改的文件的更改合并到当前更改里面。
+
+## “git commit” 中的 commit 是什么意思
+
+"git commit" 是 Git 中的一个重要命令，它的作用是将更改提交到本地仓库中。"commit" 这个词在这里是指将更改永久性地保存到代码仓库中。
+
+在 Git 中，每次提交都会生成一个唯一的提交记录，称为 "commit"。每个 commit 都有一个唯一的标识符（SHA-1 哈希值），并且每个 commit 都包含了一些信息，如提交时间、提交者、提交说明等。
+
+使用 git commit 命令后，Git 会将你的更改打包成一个新的 commit，并将这个 commit 添加到当前分支上，之后就可以在 git log 中看到这次的提交记录。
+
+每次提交时都会提示输入提交信息，也可以使用 -m "message" 来简化这个过程，在命令行中直接输入提交信息。
+
+在项目开发过程中，commit 的频率越高越好，这样可以使得回滚更加简单，也能更好的维护项目的版本历史。
