@@ -39,9 +39,9 @@
 
         setTimeout(() => {
           output.textContent = '';
-          recognition.stop();
-          recognition.start();
-        }, 3 * 1000);
+          // recognition.stop();
+          // recognition.start();
+        }, 5 * 1000);
       }
 
       const debounced = debounce(saySpeech, 1000, false);

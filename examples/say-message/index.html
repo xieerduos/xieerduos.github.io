@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      main();
+      function main() {
+        readUserComments();
+        welcome();
+      }
+      function welcome() {
+        setInterval(function () {
+          const bottomElements = document.querySelectorAll('.webcast-chatroom___bottom-message');
+          const currentElement = bottomElements[bottomElements.length - 1];
+
+          const lastMessage = sessionStorage.getItem('MESSAGE_BOTTOM');
+          const currentMessage = currentElement && currentElement.innerText;
+
+          if (currentMessage === lastMessage) {
+            console.log('重复');
+            return;
+          }
+          sessionStorage.setItem('MESSAGE_BOTTOM', currentMessage);
+          console.log(currentMessage);
+          sayMessage(currentMessage);
+        }, 3000);
+      }
+      function readUserComments() {
+        setInterval(function () {
+          const giftElements = document.querySelectorAll('.webcast-chatroom___item.webcast-chatroom___enter-done');
+          const currentGiftElement = giftElements[giftElements.length - 1];
+
+          const lastMessage = sessionStorage.getItem('MESSAGE_GIFT');
+          let currentMessage = currentGiftElement && currentGiftElement.innerText;
+
+          if (!currentMessage || (currentMessage && currentMessage.indexOf(' 来了') !== -1)) {
+            console.error(currentMessage);
+            return;
+          }
+
+          if (currentMessage === lastMessage) {
+            console.log('重复');
+            return;
+          }
+          sessionStorage.setItem('MESSAGE_GIFT', currentMessage);
+          sayMessage(currentMessage);
+        }, 1500);
+      }
+
+      function sayMessage(currentMessage = '') {
+        console.log(currentMessage);
+
+        var say = new window.SpeechSynthesisUtterance(currentMessage || '');
+        window.speechSynthesis.speak(say);
+      }
+      // say.voice = window.speechSynthesis.getVoices().filter(function (voice) {
+      //   return voice.lang === 'zh-HK';
+      // })[0];
+    </script>
+  </body>
+</html>

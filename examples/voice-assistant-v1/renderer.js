@@ -15,6 +15,8 @@ window.electronAPI.onShowTranslate((_event, text) => {
 
   // console.log('voices :>> ', voices);
 
+  say.volume = 0.6;
+
   window.speechSynthesis.speak(say);
 
   // 把文本输出
