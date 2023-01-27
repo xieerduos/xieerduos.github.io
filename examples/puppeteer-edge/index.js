@@ -5,6 +5,7 @@ const puppeteerChrome = require('puppeteer');
 const log = require('./log.js');
 const {handleKugou, handleCloseKugou} = require('./utils/kugou.js');
 
+// node index.js --chrome
 const isChromeBrowser = process.argv[2] === '--chrome';
 (async () => {
   let config = {
@@ -89,7 +90,7 @@ const isChromeBrowser = process.argv[2] === '--chrome';
           if (/^播放/gi.test(textContent)) {
             window?.handleKugou(textContent);
           }
-          if (/^关闭音乐/gi.test(textContent)) {
+          if (/^(关闭音乐|停止播放)/gi.test(textContent)) {
             window?.handleCloseKugou();
           }
 

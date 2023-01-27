@@ -60,10 +60,15 @@ class AIAssistant {
         2. 列表的方式 （展示一个排行榜 礼物从大到小排序）
         3. 如果没有人点歌，没有刷礼物也可以点
       */
-      if (/播放/gi.test(currentMessage)) {
+      if (/^程序员/gi.test(currentMessage) && /播放/gi.test(currentMessage)) {
         window?.handleKugou(currentMessage);
+      } else if (/播放|灯牌/gi.test(currentMessage)) {
+        const index = currentMessage.indexOf('：');
+        if (index !== -1) {
+          this.sayMessage(currentMessage.slice(0, index) + '点关注 亮灯牌 才能播放你的音乐');
+        }
       }
-      if (/关闭音乐/gi.test(currentMessage)) {
+      if (/^程序员/gi.test(currentMessage) && /关闭音乐|停止音乐/gi.test(currentMessage)) {
         window?.handleCloseKugou(currentMessage);
       }
 
@@ -75,17 +80,26 @@ class AIAssistant {
       }
 
       if (/(谁|你是|你是什么|这是|这是啥|这个是啥|这是什么|啥玩意|干什么|干啥|啥意思|干嘛)/gi.test(currentMessage)) {
-        this.sayMessage('我是你的人工智能助理');
+        const index = currentMessage.indexOf('：');
+        if (index !== -1) {
+          this.sayMessage(currentMessage.slice(0, index) + '我是你的人工智能助理');
+        }
       }
       if (
-        /(教|领|这用啥写的|怎么做的|什么语言|识别|代码|源码|如何学习|想要|开源|源代码|api|js|py|python|接口|实现|插件|库)/gi.test(
+        /(原理|教|领|这用啥写的|怎么做的|什么语言|识别|代码|源码|如何学习|想要|开源|源代码|api|js|py|python|接口|实现|插件|库)/gi.test(
           currentMessage
         )
       ) {
-        this.sayMessage('点关注 亮灯排 送代码');
+        const index = currentMessage.indexOf('：');
+        if (index !== -1) {
+          this.sayMessage(currentMessage.slice(0, index) + '点关注 亮灯排 送代码');
+        }
       }
       if (/(怎么进群|进群|粉丝群)/.test(currentMessage)) {
-        this.sayMessage('点关注 私聊我 进粉丝群');
+        const index = currentMessage.indexOf('：');
+        if (index !== -1) {
+          this.sayMessage(currentMessage.slice(0, index) + '点关注 私聊我 进粉丝群');
+        }
       }
       if (/(没有欢迎|不欢迎|没有我|我呢|欢迎|不读|bug|读我|咋没有)/gi.test(currentMessage)) {
         const index = currentMessage.indexOf('：');
@@ -105,14 +119,14 @@ class AIAssistant {
           this.sayMessage(currentMessage.slice(0, index) + '私聊我发你源码');
         }
       }
-      if (/(卧槽|尼玛|我去|翻墙)/gi.test(currentMessage)) {
+      if (/(卧槽|尼玛|我去|翻墙|关机|退出)/gi.test(currentMessage)) {
         const index = currentMessage.indexOf('：');
         if (index !== -1) {
           this.sayMessage(currentMessage.slice(0, index) + '请文明用语');
         }
       }
       if (/(6|牛|厉害|棒|实力|稀缺|真不错|大哥|六|liu|nb|大佬|火|不错|加油|智能|秀)/gi.test(currentMessage)) {
-        this.sayMessage('谢谢你夸我');
+        this.sayMessage(currentMessage.slice(0, index) + '谢谢你夸我');
       }
     }, 300);
   }
@@ -151,11 +165,12 @@ class AIAssistant {
     //   console.log('window.fetch error', error);
     // });
 
+    // 过滤特殊字符
     currentMessage = currentMessage.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/gi, '');
 
     const say = new window.SpeechSynthesisUtterance(currentMessage || '');
 
-    say.volume = window.volume || 0.2;
+    say.volume = window.volume || 0.09;
     say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-CN')[3];
 
     window.speechSynthesis.speak(say);
