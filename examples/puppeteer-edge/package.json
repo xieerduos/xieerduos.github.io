@@ -1,0 +1,17 @@
+{
+  "name": "puppeteer-edge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "puppeteer": "^19.6.1",
+    "puppeteer-edge": "^0.12.4"
+  }
+}
