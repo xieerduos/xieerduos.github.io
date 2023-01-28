@@ -62,7 +62,7 @@ class AIAssistant {
       */
       if (/^程序员/gi.test(currentMessage) && /播放/gi.test(currentMessage)) {
         window?.handleKugou(currentMessage);
-      } else if (/播放|灯牌/gi.test(currentMessage)) {
+      } else if (/播放/gi.test(currentMessage)) {
         const index = currentMessage.indexOf('：');
         if (index !== -1) {
           this.sayMessage(currentMessage.slice(0, index) + '点关注 亮灯牌 才能播放你的音乐');
@@ -70,6 +70,11 @@ class AIAssistant {
       }
       if (/^程序员/gi.test(currentMessage) && /关闭音乐|停止音乐/gi.test(currentMessage)) {
         window?.handleCloseKugou(currentMessage);
+      } else if (/关闭音乐|停止音乐/gi.test(currentMessage)) {
+        const index = currentMessage.indexOf('：');
+        if (index !== -1) {
+          this.sayMessage(currentMessage.slice(0, index) + '点关注 亮灯牌 才能播放你的音乐');
+        }
       }
 
       if (/删除代码|关闭电源/gi.test(currentMessage)) {
@@ -170,7 +175,7 @@ class AIAssistant {
 
     const say = new window.SpeechSynthesisUtterance(currentMessage || '');
 
-    say.volume = window.volume || 0.09;
+    say.volume = window.volume || 0.08;
     say.voice = window.speechSynthesis.getVoices().filter((voice) => voice.lang === 'zh-CN')[3];
 
     window.speechSynthesis.speak(say);

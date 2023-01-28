@@ -53,6 +53,20 @@ const isChromeBrowser = process.argv[2] === '--chrome';
     pageKugou = await handleKugou(browser, data);
   });
 
+  // 关闭电脑 下播
+  // page.exposeFunction('handleShutdown', async (data) => {
+  //   console.log('/^程序员李钟意（前端）/ig.test(data)');
+  //   if (/^程序员李钟意（前端）：gj7/gi.test(data)) {
+  //     const {exec} = require('child_process');
+  //     exec('shutdown -s -t 0', (err, stdout, stderr) => {
+  //       if (err) {
+  //         console.error(err);
+  //         return;
+  //       }
+  //       console.log(stdout);
+  //     });
+  //   }
+  // });
   page.exposeFunction('handleCloseKugou', async (data) => {
     pageKugou = null;
     await handleCloseKugou(browser, data);
