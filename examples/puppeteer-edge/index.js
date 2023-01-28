@@ -4,6 +4,7 @@ const puppeteerEdge = require('puppeteer-edge');
 const puppeteerChrome = require('puppeteer');
 const log = require('./log.js');
 const {handleKugou, handleCloseKugou} = require('./utils/kugou.js');
+const {handleOpenBlog} = require('./utils/blog.js');
 
 // node index.js --chrome
 const isChromeBrowser = process.argv[2] === '--chrome';
@@ -24,6 +25,7 @@ const isChromeBrowser = process.argv[2] === '--chrome';
   const browser = await puppeteer.launch({
     ...config,
     headless: false,
+    timeout: 60000,
     args: ['--autoplay-policy=no-user-gesture-required']
   });
 
@@ -67,9 +69,17 @@ const isChromeBrowser = process.argv[2] === '--chrome';
   //     });
   //   }
   // });
-  page.exposeFunction('handleCloseKugou', async (data) => {
+  await page.exposeFunction('handleCloseKugou', async (data) => {
     pageKugou = null;
     await handleCloseKugou(browser, data);
+  });
+  let pageBlog = null;
+  await page.exposeFunction('handleOpenBlog', async (data) => {
+    if (pageBlog) {
+      pageBlog = null;
+      await handleCloseKugou(browser, data);
+    }
+    pageBlog = await handleOpenBlog(browser, data);
   });
 
   // 读取 JavaScript 文件

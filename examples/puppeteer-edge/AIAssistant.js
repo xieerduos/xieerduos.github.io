@@ -100,7 +100,7 @@ class AIAssistant {
           this.sayMessage(currentMessage.slice(0, index) + '点关注 亮灯排 送代码');
         }
       }
-      if (/(怎么进群|进群|粉丝群)/.test(currentMessage)) {
+      if (/(怎么进群|进群|粉丝群|群)/.test(currentMessage)) {
         const index = currentMessage.indexOf('：');
         if (index !== -1) {
           this.sayMessage(currentMessage.slice(0, index) + '点关注 私聊我 进粉丝群');
@@ -124,6 +124,17 @@ class AIAssistant {
           this.sayMessage(currentMessage.slice(0, index) + '私聊我发你源码');
         }
       }
+      if (/(打开博客|博客|上传|面试题|文档)/gi.test(currentMessage)) {
+        // todotodo
+        // todotodo 打开百度 - 输入 “程序员李钟意” - 第一个
+        const index = currentMessage.indexOf('：');
+        if (index !== -1) {
+          this.sayMessage(currentMessage.slice(0, index) + '为你打开博客，百度搜索"程序员李钟意"');
+          // 打开博客
+          window?.handleOpenBlog();
+        }
+      }
+
       if (/(卧槽|尼玛|我去|翻墙|关机|退出)/gi.test(currentMessage)) {
         const index = currentMessage.indexOf('：');
         if (index !== -1) {
