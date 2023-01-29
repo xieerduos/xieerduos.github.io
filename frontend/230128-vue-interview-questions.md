@@ -1,8 +1,10 @@
-# Vue 面试题
+# Vue 面试题精选
 
-国内 Vue 面试题，经典经常被问道的 20 题
+看题之前建议先看过一遍官方文档 https://cn.vuejs.org/guide/introduction.html
 
-- 1. Vue2 和 Vue3 的区别
+## 面试题大纲
+
+- 1. Vue2 和 Vue3 的区别？
 - 2. Vue 的响应式原理是什么？
 - 3. Vue 的生命周期是什么？
 - 4. Vue 的组件之间如何通信？
