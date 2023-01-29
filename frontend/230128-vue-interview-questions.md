@@ -61,6 +61,35 @@ Vue 2 和 Vue 3 之间有许多不同之处，主要包括：
 
 总之, Vue 3 是一个更先进、更快捷的版本，带来了更好的开发体验和性能。
 
+Portals 是 Vue 3 中的一个新特性，它允许组件将其内容呈现到任意 DOM 节点上，而不仅仅限于组件的根元素。当您想在组件根元素外显示内容时（例如在模态框或工具提示中），这在某些情况下非常有用。
+
+以下是 Vue3 的例子：
+
+```javascript
+<template>
+  <div>
+    <p>This is the component content</p>
+    <portal to="#modal">
+      <p>This content will be rendered in the #modal element</p>
+    </portal>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'MyComponent'
+}
+</script>
+
+<!-- This is the HTML where the component is used -->
+<div id="app">
+  <MyComponent />
+  <div id="modal"></div>
+</div>
+```
+
+在上面的代码中，组件中的 `<p>This content will be rendered in the #modal element</p>` 将被呈现在页面的 `<div id="modal"></div>` 元素中。
+
 ## 2.Vue 的响应式原理是什么？
 
 Vue 的响应式原理是通过 Object.defineProperty() 来实现的。
