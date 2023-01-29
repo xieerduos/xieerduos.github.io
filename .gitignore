@@ -3,5 +3,5 @@ node_modules
 
 **/*.log
 
-examples/puppeteer-edge/data/
-examples/puppeteer-edge/chrome/
+examples/puppeteer-edge/data
+examples/puppeteer-edge/chrome
