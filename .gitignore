@@ -2,3 +2,6 @@ node_modules
 .git
 
 **/*.log
+
+examples/puppeteer-edge/data
+examples/puppeteer-edge/chrome

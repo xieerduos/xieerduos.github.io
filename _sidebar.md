@@ -153,3 +153,5 @@
 - [Vue 组件二次封装源码](/frontend/230121-vue-component-wrapping.md)
 
 - [Git 实战：从入门到精通](/frontend/230122-1-git-in-action.md)
+
+- [Vue 面试题精选](/frontend/230128-vue-interview-questions.md)
