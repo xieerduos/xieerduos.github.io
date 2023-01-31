@@ -56,7 +56,6 @@ Vue 2 和 Vue 3 之间有许多不同之处，主要包括：
 - Composition API: Vue 3 新增了 Composition API，这是一种全新的组件编写方式，可以更好地管理组件内部状态和逻辑。
 - Fragments: Vue 3 支持 Fragments，可以在渲染多个元素时不需要使用额外的包裹元素。
 - Teleport: Vue 3 新增了 Teleport，可以让你在不同位置渲染组件。
-- Portals: Vue 3 新增了 Portals，可以将组件内容渲染到任意 DOM 节点上。
 - Suspense: Vue 3 支持 Suspense，可以在异步组件加载时显示 loading 状态。
 - 代码结构变化： Vue 3 重构了其内部代码结构，使得组件的实现更加清晰明了。
 - 其他新特性: Vue 3 还新增了一些其他新特性,如错误处理,异步组件,持久化状态,更好的 TypeScript 支持
