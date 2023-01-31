@@ -1,5 +1,7 @@
 # Vue 面试题精选
 
+汇总 Vue 必知必会知识点
+
 看题之前建议先看过一遍官方文档 https://cn.vuejs.org/guide/introduction.html
 
 ## 面试题大纲
