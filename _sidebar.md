@@ -155,3 +155,5 @@
 - [Git 实战：从入门到精通](/frontend/230122-1-git-in-action.md)
 
 - [Vue 面试题精选](/frontend/230128-vue-interview-questions.md)
+
+- [记录与面试官的深入对话](/frontend/230130-1-recorded-interview-20230130.md)
