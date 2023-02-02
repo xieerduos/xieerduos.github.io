@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>菜鸟教程(runoob.com)</title>
+    <style>
+      .item1 {
+        grid-area: header;
+      }
+      .item2 {
+        grid-area: menu;
+      }
+      .item3 {
+        grid-area: main;
+      }
+      .item4 {
+        grid-area: right;
+      }
+      .item5 {
+        grid-area: footer;
+      }
+
+      .grid-container {
+        display: grid;
+        grid:
+          'header header header header header header'
+          'menu main main main right right'
+          'menu footer footer footer footer footer';
+        grid-gap: 10px;
+        background-color: #2196f3;
+        padding: 10px;
+      }
+
+      .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        padding: 20px 0;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>网页模版</h1>
+
+    <p>您可以使用 grid-area 属性来命名网格项。</p>
+    <p>通过使用网格容器上的 grid 属性，您可以在设置网格布局时引用该名称。</p>
+    <p>以下网格布局包含六列和三行：</p>
+
+    <div class="grid-container">
+      <div class="item1">头部</div>
+      <div class="item2">菜单</div>
+      <div class="item3">主要内容区域</div>
+      <div class="item4">右侧</div>
+      <div class="item5">底部</div>
+    </div>
+  </body>
+</html>

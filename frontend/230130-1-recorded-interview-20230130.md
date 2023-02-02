@@ -30,17 +30,58 @@
 
 https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Block_formatting_context
 
-块格式化上下文（Block Formatting Context，BFC）是 Web 页面的可视 CSS 渲染的一部分，是块级盒子的布局过程发生的区域，也是浮动元素与其他元素交互的区域。
+BFC (Block Formatting Contexts) 是 CSS 中的一种布局模型，它是页面中的一个独立的渲染区域，元素在 BFC 中的布局不受外部元素的影响。
+
+BFC 具有以下特性：
+
+- 内部元素的垂直方向的外边距不会与外部元素的外边距发生重叠。
+- BFC 元素内部的子元素的垂直方向的布局按照从上到下的顺序进行，即使它们在 HTML 代码中的顺序不同。
+- BFC 元素内部的元素不会在垂直方向上溢出其边界。
+- 在 BFC 中，浮动元素不会对其他元素的布局造成影响。
+
+BFC 可以通过以下几种方法被创建：
+
+- 根元素 (html)
+- 浮动元素（元素的 float 不是 none）
+- 绝对定位元素（元素的 position 为 absolute 或 fixed）
+- 行内块元素（元素的 display 为 inline-block）
+- overflow 值不为 visible、clip 的块元素
+- 表格单元格（元素的 display 为 table-cell，HTML 表格单元格默认为该值）
+- 网格元素（display 值为 grid 或 inline-grid 元素的直接子元素），如果它们本身既不是 flex、grid 也不是 table 容器
+
+BFC 的作用主要是帮助我们解决页面布局的问题，如：外边距重叠、浮动元素对其他元素的影响等。它提供了一种独立的布局环境，使得元素在布局上不受外部元素的影响，可以更加方便地实现复杂的布局效果。
+
+另外，BFC 还可以控制元素的尺寸，例如在 BFC 中，内部元素的宽度会自动调整为完全包含它们，以防止它们的宽度超出容器的宽度。
+
+总的来说，BFC 是一种非常有用的布局技术，通过使用 BFC，可以更方便地实现复杂的布局效果，并且保证布局的稳定性。
 
 ## 2. grid 和 flex 布局介绍一下
 
-Grid 布局：是 CSS 中的网格布局技术，可以将一个页面划分为行和列，便于控制元素的位置和大小。
-
-Flex 布局：是 CSS 中的弹性布局技术，可以让一个容器中的元素自动按照一定的比例分配空间，并且可以方便地实现水平或垂直方向的布局。
+- Grid 布局：是 CSS 中的网格布局技术，可以将一个页面划分为行和列，便于控制元素的位置和大小。
+- Flex 布局：是 CSS 中的弹性布局技术，可以让一个容器中的元素自动按照一定的比例分配空间，并且可以方便地实现水平或垂直方向的布局。
 
 ## 3. grid 3 等份怎么做
 
+```css
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+```
+
 ## 4. CSS 有一个元素被挤压了怎么办？
+
+出现这种情况一般是宽度为 auto 导致，给容器设置固定或者比例就可以。
+
+比如 grid 布局，下面把 auto 改为 1fr 单位
+
+```CSS
+.grid-container {
+  display: grid;
+  /* grid-template-columns: auto auto auto; */
+  grid-template-columns: 1fr 1fr 1fr;
+}
+```
 
 ## 5. 什么是重绘和回流？
 
@@ -141,53 +182,201 @@ JS 事件模型点击事件详细过程如下：
 - 在冒泡阶段结束后，浏览器进入捕获阶段，从外到内检查是否有元素绑定了点击事件处理函数。
 - 如果存在绑定点击事件处理函数的元素，则调用该函数，
 
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Event Model</title>
+  </head>
+  <body>
+    <div id="outerDiv">
+      <div id="innerDiv">
+        <button id="myButton">Click Me</button>
+      </div>
+    </div>
+    <p id="output"></p>
+    <script>
+      var outerDiv = document.getElementById('outerDiv');
+      var innerDiv = document.getElementById('innerDiv');
+      var button = document.getElementById('myButton');
+
+      button.addEventListener(
+        'click',
+        () => {
+          console.log(3);
+        },
+        true
+      );
+      innerDiv.addEventListener(
+        'click',
+        () => {
+          console.log(2);
+        },
+        true
+      );
+
+      outerDiv.addEventListener(
+        'click',
+        (event) => {
+          console.log(1);
+          // event.stopPropagation();
+        },
+        true
+      );
+      window.addEventListener(
+        'click',
+        () => {
+          console.log(4);
+        },
+        true
+      );
+      window.addEventListener(
+        'click',
+        () => {
+          console.log(5);
+        },
+        false
+      );
+      outerDiv.addEventListener(
+        'click',
+        () => {
+          console.log(6);
+        },
+        false
+      );
+      innerDiv.addEventListener(
+        'click',
+        () => {
+          console.log(7);
+        },
+        false
+      );
+      button.addEventListener(
+        'click',
+        () => {
+          console.log(8);
+        },
+        false
+      );
+    </script>
+  </body>
+</html>
+```
+
+答案
+
+```JavaScript
+4
+1
+2
+3
+8
+7
+6
+5
+```
+
 ## 9. 浏览器的缓存机制都有哪些
 
 比如：在 chrome 浏览器打开一个 html 加载 一个网页，缓存机制都有哪些
 
-主要的浏览器缓存机制有：
+浏览器缓存机制主要有两种：强缓存和协商缓存。
 
-- HTTP 缓存（Expires/Max-Age headers, Last-Modified/ETag headers)
-- 浏览器缓存（Cache-Control headers, localStorage, sessionStorage）
+强缓存：浏览器检查缓存中是否存在请求的资源，如果存在，则直接使用缓存中的资源，不再向服务器请求。强缓存通过 HTTP 响应头的 "Expires" 和 "Cache-Control" 指令来实现。
 
-当浏览器加载一个 HTML 页面时，它会使用上述缓存机制缓存页面的资源（图像、样式表、脚本等），以便在后续请求中较快地加载页面。
+协商缓存：如果缓存中不存在请求的资源或者强缓存已经失效，浏览器会向服务器发送请求，询问服务器是否更新了资源。协商缓存通过 HTTP 请求头的 "If-Modified-Since" 和 "If-None-Match" 指令实现。
 
-浏览器的缓存机制主要有以下几种：
+当你访问一个页面时，浏览器首先检查缓存中是否存在该页面，如果存在且未失效，则直接使用缓存中的页面；否则，浏览器会向服务器发起请求，询问是否需要更新页面，然后根据服务器的响应决定是否使用缓存或重新请求页面。
 
-- 1. Memory Cache：存储在浏览器内存中的临时缓存。
-- 2. Disk Cache：存储在浏览器硬盘上的永久缓存。
-- 3. In-Memory IndexedDB：使用 IndexedDB 数据库存储的离线缓存。
-- 4. Service Worker Cache：使用 Service Worker API 存储的离线缓存。
-- 5. Application Cache：使用 HTML5 的 Application Cache API 存储的离线缓存。
-- 6. HTTP Cache：存储在服务器或代理上的永久缓存。
+---
 
-这些缓存机制都可以加快浏览器加载页面的速度，减少请求资源的数量，提高用户体验。
+**更详细一点**
 
-浏览器的缓存机制具体如下：
+强缓存的工作原理如下：
 
-1. Memory Cache：存储在浏览器内存中的临时缓存。该缓存主要用于提高页面的访问速度，并在用户关闭浏览器后清除。它可以存储 HTML、CSS、JavaScript 文件等静态资源，使得页面加载速度更快。
+- 在第一次请求某个资源时，浏览器会请求服务器，并将服务器的响应保存到缓存中。
+- 在下一次请求该资源时，浏览器会先检查缓存中是否存在该资源，如果存在，则直接使用缓存中的资源，不再向服务器请求。
 
-2. Disk Cache：存储在浏览器硬盘上的永久缓存。该缓存在浏览器关闭后仍然存在，并在下次访问页面时被使用。它可以存储静态资源，以及 HTML、CSS、JavaScript 文件等静态资源。
+强缓存通过 HTTP 响应头的 "Expires" 和 "Cache-Control" 指令来实现。例如：
 
-3. In-Memory IndexedDB：使用 IndexedDB 数据库存储的离线缓存。该缓存存储在浏览器硬盘上，可以在离线状态下使用，并在用户关闭浏览器后仍然存在。它可以存储动态数据，以及静态资源。
+```yaml
+HTTP/1.1 200 OK
+Date: Mon, 01 Feb 2023 12:00:00 GMT
+Expires: Tue, 02 Feb 2023 12:00:00 GMT
+Cache-Control: max-age=86400
+```
 
-4. Service Worker Cache：使用 Service Worker API 存储的离线缓存。该缓存存储在浏览器硬盘上，可以在离线状态下使用，并在用户关闭浏览器后仍然存在。它可以存储动态数据，以及静态资源。
+上面的 HTTP 响应头告诉浏览器该资源的缓存有效期为一天（max-age=86400，单位为秒），直到明天 12:00:00 GMT 之前，浏览器都不会再向服务器请求该资源，而是直接使用缓存中的资源。
 
-5. Application Cache：使用 HTML5 的 Application Cache API 存储的离线缓存。该缓存存储在浏览器硬盘上，可以在离线状态下使用，并在用户关闭浏览器后仍然存在。它可以存储静态资源，以及静态页面。
+协商缓存是一种更加灵活的浏览器缓存机制，它依赖于浏览器和服务器之间的协商来决定是否使用缓存。
 
-6. HTTP Cache：存储在服务器或代理上的永久缓存。该缓存用于在多个用户间共享缓存，并且可以在多个浏览器或设备上共享。它可以存储静态资源，以及动态数据。
+在协商缓存中，浏览器请求时会携带 "Cache-Control" 和 "ETag" 等 HTTP 请求头，服务器响应时会返回 "Last-Modified" 或 "ETag" 等 HTTP 响应头，浏览器和服务器会根据这些头信息来决定是否使用缓存。
 
-需要注意的是，所有缓存都有其生存期限，当缓存过期时，将会重新请求数据。此外，开发人员可以通过在 HTTP 请求头中设置缓存控制字段（如 Expires、Cache-Control、Etag 等），来控制浏览器的缓存行为。
+举个例子，假设浏览器请求一个名为 "index.html" 的网页，如下所示：
 
-**协商缓存 Last-Modified**
+```yaml
+GET /index.html HTTP/1.1
+Host: example.com
+Cache-Control: max-age=0
+If-None-Match: "a-unique-hash-value"
+```
 
-Last-Modified 是 HTTP 协议的一个响应头，表示请求资源的最后修改时间。
+服务器的响应：
 
-浏览器在请求一个资源时，会将上一次请求该资源时服务器返回的 Last-Modified 值一并发送给服务器，服务器根据该值决定是否返回资源的内容。
+```yaml
+HTTP/1.1 200 OK
+Date: Mon, 01 Feb 2023 12:00:00 GMT
+Last-Modified: Mon, 01 Feb 2023 11:00:00 GMT
+ETag: "a-unique-hash-value"
+```
 
-如果请求的资源在服务器端没有更改，那么服务器将返回一个 304 Not Modified 响应，并不返回资源的内容；否则服务器将返回完整的资源内容。
+浏览器在第一次请求时，通过 "Cache-Control" 和 "If-None-Match" 请求头询问服务器该资源是否变更。服务器的响应带有 "Last-Modified" 和 "ETag" 响应头，表示该资源的最后修改时间和当前版本的唯一标识，浏览器将缓存该资源并存储这些响应头信息。
 
-这样的协商缓存可以节省网络带宽，提高请求资源的速度。
+第二次请求时，浏览器会携带 "If-Modified-Since" 和 "If-None-Match" 请求头，告诉服务器它缓存的资源的最后修改时间和版本标识：
+
+```yaml
+GET /index.html HTTP/1.1
+Host: example.com
+Cache-Control: max-age=0
+If-Modified-Since: Mon, 01 Feb 2023 11:00:00 GMT
+If-None-Match: "a-unique-hash-value"
+```
+
+服务器会比较请求头中的最后修改时间和版本标识与服务器上当前的版本，如果没有变更，服务器会返回 "304 Not Modified" 状态码，告诉浏览器使用它缓存的资源，以避免重复下载：
+
+```yaml
+HTTP/1.1 304 Not Modified
+Date: Mon, 01 Feb 2023 12:01:00 GMT
+```
+
+如果服务器上的资源发生了变更，则会返回最新的内容：
+
+```yaml
+HTTP/1.1 200 OK
+Date: Mon, 01 Feb 2023 12:01:00 GMT
+Last-Modified: Mon, 01 Feb 2023 12:00:00 GMT
+ETag: "a-new-unique-hash-value"
+```
+
+这样，浏览器就能确定该资源是否需要更新，从而更有效地利用它的缓存。
+
+**"Expires" 和 "Cache-Control" 为什么要两个字段，一个字段不就可以直到是否过期了吗**
+
+Expires 和 Cache-Control 两个字段都用于控制缓存的有效期，但两者的使用方式和优先级略有不同。
+
+Expires 是 HTTP/1.0 版本提出的字段，它的格式是一个绝对的日期/时间，告诉浏览器在此之前该资源是有效的。它不能与私有缓存（Private Cache）一起使用，也不能与 shared cache（共享缓存）一起使用，因此它的使用范围非常有限。
+
+Cache-Control 是 HTTP/1.1 版本提出的字段，它是一个更灵活、功能更强的字段，可以通过不同的指令（例如 max-age，no-cache，no-store，private，public）控制缓存的有效期和共享范围。
+
+所以，使用 Expires 和 Cache-Control 两个字段都可以控制缓存的有效期，但由于 Cache-Control 的功能更强，更灵活，因此更加受欢迎。在 HTTP/1.1 中，Expires 可以作为 Cache-Control 的备用字段使用，但它的优先级比 Cache-Control 低。
+
+**你上面提到的 etag 是什么**
+
+Etag (Entity Tag) 是 HTTP/1.1 版本提出的一个字段，用于描述一个资源的实体，它的作用是确定该资源是否已经更改。
+
+Etag 的值是一个哈希值，代表了该资源的当前版本。当浏览器向服务器请求该资源时，可以同时发送 If-None-Match 请求头，询问该资源的 Etag 是否与浏览器缓存的版本相同。如果服务器返回的 Etag 值与浏览器缓存的版本不同，则说明该资源已经更新，浏览器需要重新请求最新的资源。
+
+使用 Etag 的优点是，如果该资源没有更新，服务器可以立即返回 HTTP 状态码 304 (Not Modified)，表示该资源没有更新，浏览器可以继续使用缓存的版本，避免了不必要的网络带宽浪费。
 
 ## 10. Vue 里面 v-if 和 v-show 那个优先级高
 

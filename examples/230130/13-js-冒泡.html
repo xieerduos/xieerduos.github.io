@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Event Model</title>
+  </head>
+  <body>
+    <div id="outerDiv">
+      <div id="innerDiv">
+        <button id="myButton">Click Me</button>
+      </div>
+    </div>
+    <p id="output"></p>
+    <script>
+      var outerDiv = document.getElementById('outerDiv');
+      var innerDiv = document.getElementById('innerDiv');
+      var button = document.getElementById('myButton');
+
+      button.addEventListener(
+        'click',
+        () => {
+          console.log(3);
+        },
+        true
+      );
+      innerDiv.addEventListener(
+        'click',
+        () => {
+          console.log(2);
+        },
+        true
+      );
+
+      outerDiv.addEventListener(
+        'click',
+        (event) => {
+          console.log(1);
+          // event.stopPropagation();
+        },
+        true
+      );
+      window.addEventListener(
+        'click',
+        () => {
+          console.log(4);
+        },
+        true
+      );
+      window.addEventListener(
+        'click',
+        () => {
+          console.log(5);
+        },
+        false
+      );
+      outerDiv.addEventListener(
+        'click',
+        () => {
+          console.log(6);
+        },
+        false
+      );
+      innerDiv.addEventListener(
+        'click',
+        () => {
+          console.log(7);
+        },
+        false
+      );
+      button.addEventListener(
+        'click',
+        () => {
+          console.log(8);
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>菜鸟教程(runoob.com)</title>
+    <style>
+      .grid-container {
+        display: grid;
+        justify-content: space-evenly;
+        grid-template-columns: 50px 50px 50px; /* 设置网格宽度小于容器宽度 */
+        /* grid-gap: 10px; */
+        background-color: #2196f3;
+        /* padding: 10px; */
+      }
+
+      .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        /* padding: 20px 0; */
+        font-size: 30px;
+        box-sizing: border-box;
+        border: 1px solid #f00;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>justify-content 属性</h1>
+
+    <p>使用 <em>justify-content</em> 属性对齐容器内的网格。</p>
+
+    <p>"space-evenly" 用于均匀排列每个元素，每个元素之间的间隔相等:</p>
+
+    <div class="grid-container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </body>
+</html>
