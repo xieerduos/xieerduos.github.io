@@ -30,8 +30,8 @@
     "docsify-cli": "^4.4.4"
   },
   "devDependencies": {
-    "husky": "^8.0.1",
-    "lint-staged": "^13.0.3",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
     "prettier": "2.7.1"
   },
   "lint-staged": {
