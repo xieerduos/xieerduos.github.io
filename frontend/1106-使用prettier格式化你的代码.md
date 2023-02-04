@@ -133,7 +133,11 @@ npm install --save-dev husky lint-staged
 npx husky install
 # 注意： npm set-script命令至少需要npm v7.x。
 # 请参阅https://docs.npmjs.com/cli/v7/commands/npm-set-script。
-npm set-script prepare "husky install"
+# npm set-script prepare "husky install"
+# npx husky add .husky/pre-commit "npx lint-staged"
+
+# npm version 9.3.1 使用下面命令
+npm pkg set scripts.prepare="husky install"
 npx husky add .husky/pre-commit "npx lint-staged"
 ```
 
