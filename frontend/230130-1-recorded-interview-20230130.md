@@ -507,7 +507,9 @@ export default {
 
 ## 13. Vue 虚拟 DOM 是什么？
 
-<a href="/frontend/230128-vue-interview-questions?id=_22-vue-的-virtual-dom-是什么？" target="_blank">Vue 的 Virtual DOM 是什么？</a>
+https://cn.vuejs.org/guide/extras/rendering-mechanism.html#virtual-dom
+
+<a href="/#/frontend/230128-vue-interview-questions?id=_22-vue-的-virtual-dom-是什么？" target="_blank">Vue 的 Virtual DOM 是什么？</a>
 
 https://cn.vuejs.org/guide/extras/rendering-mechanism.html#virtual-dom
 

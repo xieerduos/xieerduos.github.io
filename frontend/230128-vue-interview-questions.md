@@ -473,6 +473,8 @@ Vue2 和 Vue3 都支持计算属性和侦听器。在 vue2 中通过 computed �
 
 ## 22. Vue 的 Virtual DOM 是什么？
 
+https://cn.vuejs.org/guide/extras/rendering-mechanism.html#virtual-dom
+
 Vue 的 Virtual DOM 是一种 JavaScript 实现的虚拟 DOM，它可以在浏览器端帮助我们更高效地更新页面。
 Vue 在渲染组件时会将组件的视图渲染成一棵 JavaScript 对象树，这棵树就是 Virtual DOM。
 在每次组件状态变化时，Vue 会比较新旧 Virtual DOM 的差异并只更新需要更新的部分。
