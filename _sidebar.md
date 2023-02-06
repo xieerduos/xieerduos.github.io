@@ -159,3 +159,5 @@
 - [记录与面试官的深入对话](/frontend/230130-1-recorded-interview-20230130.md)
 
 - [CSS3 grid 布局](/frontend/230201-css-grid.md)
+
+- [配置你的 Mac m2 电脑环境](/frontend/230204-config-your-mac.md)
